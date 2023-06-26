@@ -24,6 +24,7 @@ import { appReducer } from './store/reducers';
 import { AppEffects } from './store/effects';
 
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
+import { SpaceComponent } from './components/space/space.component';
 
 const mat = [
   MatCardModule,
@@ -41,7 +42,12 @@ const mat = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, CircleLinkComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    CircleLinkComponent,
+    SpaceComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
