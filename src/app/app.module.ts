@@ -23,6 +23,8 @@ import { MainComponent } from './components/main/main.component';
 import { appReducer } from './store/reducers';
 import { AppEffects } from './store/effects';
 
+import { CircleLinkComponent } from './components/circle-link/circle-link.component';
+
 const mat = [
   MatCardModule,
   MatIconModule,
@@ -39,7 +41,7 @@ const mat = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, CircleLinkComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

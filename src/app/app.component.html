@@ -15,33 +15,16 @@
 
   <!-- Links -->
   <div class="card-container">
-    <a
-      class="circle-link"
-      title="LinkedIn"
-      href="https://www.linkedin.com/in/mart%C3%ADn-campagnoli-b94b7b27/"
-      target="_blank"
-      rel="noopener"
-    >
-      <img
-        width="30"
-        height="30"
-        src="https://img.icons8.com/color/48/000000/linkedin.png"
-      />
-    </a>
-
-    <a
-      class="circle-link"
-      title="Github"
-      href="https://github.com/martincampagnoli"
-      target="_blank"
-      rel="noopener"
-    >
-      <img
-        width="30"
-        height="30"
-        src="https://img.icons8.com/ios-filled/50/000000/github.png"
-      />
-    </a>
+    <app-circle-link
+      [title]="'LinkedIn'"
+      [link]="'https://www.linkedin.com/in/martincampagnoli/'"
+      [img]="'https://img.icons8.com/color/48/000000/linkedin.png'"
+    ></app-circle-link>
+    <app-circle-link
+      [title]="'Github'"
+      [link]="'https://github.com/martincampagnoli'"
+      [img]="'https://img.icons8.com/ios-filled/50/000000/github.png'"
+    ></app-circle-link>
   </div>
 
   <svg
