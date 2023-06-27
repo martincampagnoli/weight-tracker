@@ -1,13 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Post } from '../Models/Post';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  getData(): Observable<any> {
-    return of(null);
+  url = 'https://jsonplaceholder.typicode.com/posts';
+
+  getData(): Observable<Array<Post>> {
+    return this.httpClient.get<Array<Post>>(this.url);
   }
 }
