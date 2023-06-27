@@ -1,10 +1,11 @@
-import { Action } from "@ngrx/store";
+import { Action } from '@ngrx/store';
 
 // Error
-export const GET_FAILURE = "[Default] GetFailure  Error";
-export const GET_DATA = "[Default] GetData";
-export const GET_DATA_SUCCESS = "[Default] GetData Success";
-export const RESET_APP_STATE = "[Default] Reset app state";
+export const GET_FAILURE = '[Default] GetFailure  Error';
+export const GET_DATA = '[Default] GetData';
+export const GET_DATA_SUCCESS = '[Default] GetData Success';
+export const RESET_APP_STATE = '[Default] Reset app state';
+export const UPDATE_DISPLAY_VALUE = '[Default] Update display value';
 
 export class GetFailure implements Action {
   readonly type = GET_FAILURE;
@@ -29,5 +30,15 @@ export class ResetAppState implements Action {
 
   constructor(public payload: any) {}
 }
+export class UpdateDisplayValue implements Action {
+  readonly type = UPDATE_DISPLAY_VALUE;
 
-export type AppActions = GetFailure | GetData | GetDataSuccess | ResetAppState;
+  constructor(public payload: any) {}
+}
+
+export type AppActions =
+  | GetFailure
+  | GetData
+  | GetDataSuccess
+  | ResetAppState
+  | UpdateDisplayValue;

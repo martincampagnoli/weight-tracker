@@ -1,10 +1,11 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as actions from '../actions';
+import { Post } from 'src/app/Models/Post';
 
 // App state
 export interface AppState {
   loading: boolean;
-  data: any;
+  data: Array<Post>;
 }
 
 const defaultAppState: AppState = {
@@ -38,6 +39,18 @@ export function appReducer(
         ...state,
         loading: false,
         data: action.payload,
+      });
+
+    case actions.UPDATE_DISPLAY_VALUE:
+      const updatedData = [
+        ...state.data.map((e) =>
+          e.id === action.payload.id ? { ...e, displayKey: 'ID' } : e
+        ),
+      ];
+      return (state = {
+        ...state,
+        loading: false,
+        data: updatedData,
       });
 
     default: {
