@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,6 +27,7 @@ import { AppEffects } from './store/effects';
 
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
 import { GridComponent } from './components/grid/grid.component';
+import { PostComponent } from './components/post/post.component';
 
 const mat = [
   MatCardModule,
@@ -49,11 +51,13 @@ const mat = [
     MainComponent,
     CircleLinkComponent,
     GridComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('app', appReducer),
     EffectsModule.forRoot([AppEffects]),
