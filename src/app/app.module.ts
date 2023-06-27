@@ -13,6 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { appReducer } from './store/reducers';
 import { AppEffects } from './store/effects';
 
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
-import { SpaceComponent } from './components/space/space.component';
+import { GridComponent } from './components/grid/grid.component';
 
 const mat = [
   MatCardModule,
@@ -39,6 +40,7 @@ const mat = [
   MatSelectModule,
   MatChipsModule,
   MatSnackBarModule,
+  MatGridListModule,
 ];
 
 @NgModule({
@@ -46,7 +48,7 @@ const mat = [
     AppComponent,
     MainComponent,
     CircleLinkComponent,
-    SpaceComponent,
+    GridComponent,
   ],
   imports: [
     BrowserModule,
