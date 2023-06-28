@@ -38,13 +38,15 @@ export function appReducer(
       return (state = {
         ...state,
         loading: false,
-        data: action.payload,
+        data: action.payload.map((e: Post) => ({ ...e, displayKey: 'TITLE' })),
       });
 
     case actions.UPDATE_DISPLAY_VALUE:
       const updatedData = [
         ...state.data.map((e) =>
-          e.id === action.payload.id ? { ...e, displayKey: 'ID' } : e
+          e.id === action.payload.post.id
+            ? { ...e, displayKey: action.payload.displayKey }
+            : e
         ),
       ];
       return (state = {
