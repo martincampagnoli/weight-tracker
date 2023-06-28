@@ -1,22 +1,10 @@
-.center {
-  margin: auto;
-  width: 50%;
-  border: 3px solid #1976d2;
-  padding: 10px;
+mat-grid-tile .mat-grid-tile-content {
+  display: block !important;
+  align-items: unset !important;
+  justify-content: unset !important;
+  height: 100%;
 }
 
-mat-form-field,
-button {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-mat-card-content {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
 mat-grid-tile {
   background: lightblue;
 }
