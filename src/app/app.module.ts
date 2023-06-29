@@ -28,6 +28,7 @@ import { AppEffects } from './store/effects';
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
 import { GridComponent } from './components/grid/grid.component';
 import { PostComponent } from './components/post/post.component';
+import { ButtonLinkComponent } from './components/button-link/button-link.component';
 
 const mat = [
   MatCardModule,
@@ -49,6 +50,7 @@ const mat = [
   declarations: [
     AppComponent,
     MainComponent,
+    ButtonLinkComponent,
     CircleLinkComponent,
     GridComponent,
     PostComponent,
