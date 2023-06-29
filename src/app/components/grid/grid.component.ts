@@ -1,8 +1,7 @@
-import { displayKeysArray } from './../../store/reducers/index';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
-  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -18,6 +17,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-grid',
@@ -33,21 +33,30 @@ import {
     ]),
   ],
 })
-export class GridComponent implements OnInit {
+export class GridComponent {
   data$: Observable<Array<Post>>;
   loading: boolean = false;
   keys = reducers.displayKeysArray;
 
-  constructor(private store: Store<reducers.AppState>) {
+  constructor(
+    private store: Store<reducers.AppState>,
+    private ref: ChangeDetectorRef,
+    private snackBar: MatSnackBar
+  ) {
     this.store
       .select(reducers.isLoading)
       .pipe(takeUntilDestroyed())
       .subscribe((loading) => {
         this.loading = loading as boolean;
+        this.ref.markForCheck();
+      });
+    this.store
+      .select(reducers.getError)
+      .pipe(takeUntilDestroyed())
+      .subscribe((e) => {
+        this.snackBar.open(e?.error?.message, undefined, { duration: 2000 });
       });
     this.data$ = this.store.select(reducers.getData);
     this.store.dispatch(new actions.GetData());
   }
-
-  ngOnInit() {}
 }
