@@ -1,5 +1,9 @@
 # Post Display
 
+Post Display app built with [Angular](https://angular.io/) as frontend framework, [Angular Material](https://material.angular.io/) for design and styling and [NgRx](https://ngrx.io/) is used for state management.  
+It uses [jsonplaceholder API](https://jsonplaceholder.typicode.com) to fetch 100 posts and render them all in a grid (10x10).  
+Post titles are displayed by default in the squares. Users can then click on any post to replace the title with the userId in the post. Subsequents clicks will cycle over the properties and display them replacing the previous one.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
 
 ## Development server
