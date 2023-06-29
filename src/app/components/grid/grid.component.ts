@@ -1,3 +1,4 @@
+import { displayKeysArray } from './../../store/reducers/index';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -35,6 +36,7 @@ import {
 export class GridComponent implements OnInit {
   data$: Observable<Array<Post>>;
   loading: boolean = false;
+  keys = reducers.displayKeysArray;
 
   constructor(private store: Store<reducers.AppState>) {
     this.store
