@@ -1,15 +1,15 @@
 <div class="container" (click)="changeDisplayValue()">
-  <div [ngSwitch]="post?.displayKey">
-    <div *ngSwitchCase="'ID'">
-      <span>{{ post?.id }}</span>
-    </div>
-    <div *ngSwitchCase="'USERID'">
+  <div [ngSwitch]="post?.displayKey" class="subcontainer">
+    <div *ngSwitchCase="keys[1]" class="ellipsis">
       <span> {{ post?.userId }}</span>
     </div>
-    <div *ngSwitchCase="'BODY'">
+    <div *ngSwitchCase="keys[2]" class="ellipsis">
+      <span>{{ post?.id }}</span>
+    </div>
+    <div *ngSwitchCase="keys[3]" class="ellipsis">
       <span> {{ post?.body }}</span>
     </div>
-    <div *ngSwitchDefault>
+    <div *ngSwitchDefault class="ellipsis">
       <span>{{ post?.title }}</span>
     </div>
   </div>
