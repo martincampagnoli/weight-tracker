@@ -24,7 +24,7 @@ export function appReducer(
 
     case actions.GET_DATA:
       return (state = {
-        ...state,
+        data: [],
         loading: true,
       });
 
@@ -71,4 +71,8 @@ export const getAppState = createSelector(
 
 export const getData = createSelector(selectAppState, (state: AppState) => {
   return state.data;
+});
+
+export const isLoading = createSelector(selectAppState, (state: AppState) => {
+  return state.loading;
 });
