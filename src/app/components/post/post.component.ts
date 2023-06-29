@@ -4,13 +4,10 @@ import {
   Input,
   OnChanges,
 } from '@angular/core';
-import { Post } from 'src/app/Models/Post';
+import { Post } from 'src/app/models/Post';
 import { Store } from '@ngrx/store';
 import * as reducers from '../../store/reducers';
 import * as actions from '../../store/actions';
-export type displayKeys = 'TITLE' | 'USERID' | 'ID' | 'BODY';
-
-const displayKeysArray = ['TITLE', 'USERID', 'ID', 'BODY'] as const;
 
 @Component({
   selector: 'app-post',
@@ -21,6 +18,7 @@ const displayKeysArray = ['TITLE', 'USERID', 'ID', 'BODY'] as const;
 export class PostComponent implements OnChanges {
   @Input() post: Post | undefined;
   value: string | number | undefined;
+  keys = reducers.displayKeysArray;
 
   constructor(private store: Store<reducers.AppState>) {}
 
@@ -30,16 +28,15 @@ export class PostComponent implements OnChanges {
 
   displayValue(): void {
     switch (this.post?.displayKey) {
-      case displayKeysArray[1]: {
+      case this.keys[1]: {
         this.value = this.post?.userId;
         break;
       }
-      case displayKeysArray[2]: {
+      case this.keys[2]: {
         this.value = this.post?.id;
         break;
       }
-
-      case displayKeysArray[3]: {
+      case this.keys[3]: {
         this.value = this.post?.body;
         break;
       }
@@ -51,12 +48,12 @@ export class PostComponent implements OnChanges {
 
   changeDisplayValue(): void {
     const i =
-      displayKeysArray.indexOf(this.post?.displayKey as displayKeys) + 1;
-    const n = displayKeysArray.length;
+      this.keys.indexOf(this.post?.displayKey as reducers.DisplayKeys) + 1;
+    const n = this.keys.length;
     this.store.dispatch(
       new actions.UpdateDisplayValue({
         post: this.post,
-        displayKey: displayKeysArray[((i % n) + n) % n],
+        displayKey: this.keys[((i % n) + n) % n],
       })
     );
   }

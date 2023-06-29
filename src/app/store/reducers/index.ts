@@ -1,6 +1,14 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as actions from '../actions';
-import { Post } from 'src/app/Models/Post';
+import { Post } from 'src/app/models/Post';
+
+export type DisplayKeys = 'TITLE' | 'USERID' | 'ID' | 'BODY';
+export const displayKeysArray: DisplayKeys[] = [
+  'TITLE',
+  'USERID',
+  'ID',
+  'BODY',
+];
 
 // App state
 export interface AppState {
@@ -38,7 +46,10 @@ export function appReducer(
       return (state = {
         ...state,
         loading: false,
-        data: action.payload.map((e: Post) => ({ ...e, displayKey: 'TITLE' })),
+        data: action.payload.map((e: Post) => ({
+          ...e,
+          displayKey: displayKeysArray[0],
+        })),
       });
 
     case actions.UPDATE_DISPLAY_VALUE:

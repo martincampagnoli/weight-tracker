@@ -9,7 +9,7 @@ import * as reducers from '../../store/reducers';
 import * as actions from '../../store/actions';
 import { Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Post } from 'src/app/Models/Post';
+import { Post } from 'src/app/models/Post';
 import {
   animate,
   state,
