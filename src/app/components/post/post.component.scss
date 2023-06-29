@@ -2,4 +2,7 @@
   width: 100%;
   height: calc(100% - 5px);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -15,36 +15,12 @@ import * as actions from '../../store/actions';
   styleUrls: ['./post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostComponent implements OnChanges {
+export class PostComponent {
   @Input() post: Post | undefined;
   value: string | number | undefined;
   keys = reducers.displayKeysArray;
 
   constructor(private store: Store<reducers.AppState>) {}
-
-  ngOnChanges(): void {
-    this.displayValue();
-  }
-
-  displayValue(): void {
-    switch (this.post?.displayKey) {
-      case this.keys[1]: {
-        this.value = this.post?.userId;
-        break;
-      }
-      case this.keys[2]: {
-        this.value = this.post?.id;
-        break;
-      }
-      case this.keys[3]: {
-        this.value = this.post?.body;
-        break;
-      }
-      default: {
-        this.value = this.post?.title;
-      }
-    }
-  }
 
   changeDisplayValue(): void {
     const i =

@@ -1,3 +1,16 @@
 <div class="container" (click)="changeDisplayValue()">
-  {{ value }}
+  <div [ngSwitch]="post?.displayKey">
+    <div *ngSwitchCase="'ID'">
+      <span>ID: {{ post?.id }}</span>
+    </div>
+    <div *ngSwitchCase="'USERID'">
+      <span>USERID: {{ post?.userId }}</span>
+    </div>
+    <div *ngSwitchCase="'BODY'">
+      <span>BODY: {{ post?.body }}</span>
+    </div>
+    <div *ngSwitchDefault>
+      <span>Title: {{ post?.title }}</span>
+    </div>
+  </div>
 </div>
