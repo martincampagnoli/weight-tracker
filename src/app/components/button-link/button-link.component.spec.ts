@@ -4,6 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ButtonLinkComponent } from './button-link.component';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ButtonLinkComponent', () => {
   let component: ButtonLinkComponent;
@@ -11,9 +14,9 @@ describe('ButtonLinkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonLinkComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonLinkComponent],
+      imports: [MatIconModule, RouterModule, RouterTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

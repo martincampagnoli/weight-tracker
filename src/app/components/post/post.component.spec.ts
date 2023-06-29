@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { PostComponent } from './post.component';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -11,9 +13,14 @@ describe('PostComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostComponent ]
-    })
-    .compileComponents();
+      declarations: [PostComponent],
+      providers: [
+        {
+          provide: Store,
+          useValue: { select: () => of(null), dispatch: () => null },
+        },
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

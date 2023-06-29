@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from './main.component';
+import { ButtonLinkComponent } from '../button-link/button-link.component';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -8,9 +12,9 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainComponent ]
-    })
-    .compileComponents();
+      declarations: [MainComponent, ButtonLinkComponent],
+      imports: [MatIconModule, RouterModule, RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

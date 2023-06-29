@@ -4,6 +4,12 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { GridComponent } from './grid.component';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 describe('GridComponent', () => {
   let component: GridComponent;
@@ -11,9 +17,20 @@ describe('GridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GridComponent ]
-    })
-    .compileComponents();
+      declarations: [GridComponent],
+      providers: [
+        {
+          provide: Store,
+          useValue: { select: () => of(null), dispatch: () => null },
+        },
+      ],
+      imports: [
+        MatProgressBarModule,
+        BrowserAnimationsModule,
+        MatSnackBarModule,
+        MatGridListModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
