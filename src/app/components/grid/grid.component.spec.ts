@@ -10,6 +10,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AppEffects } from 'src/app/store/effects';
 
 describe('GridComponent', () => {
   let component: GridComponent;
@@ -22,6 +23,10 @@ describe('GridComponent', () => {
         {
           provide: Store,
           useValue: { select: () => of(null), dispatch: () => null },
+        },
+        {
+          provide: AppEffects,
+          useValue: { $getData: of(null) },
         },
       ],
       imports: [
