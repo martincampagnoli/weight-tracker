@@ -5,6 +5,11 @@ mat-grid-tile .mat-grid-tile-content {
   height: 100%;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+}
+
 .background {
   &--title {
     background-color: rgb(230, 173, 211);

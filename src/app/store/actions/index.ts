@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 
 // Error
 export const GET_FAILURE = '[Default] GetFailure  Error';
+
 export const GET_DATA = '[Default] GetData';
 export const GET_DATA_SUCCESS = '[Default] GetData Success';
 export const RESET_APP_STATE = '[Default] Reset app state';
