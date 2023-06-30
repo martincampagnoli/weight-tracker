@@ -14,13 +14,11 @@ export const displayKeysArray: DisplayKeys[] = [
 export interface AppState {
   loading: boolean;
   data: Array<Post>;
-  error: any;
 }
 
 const defaultAppState: AppState = {
   loading: false,
   data: [],
-  error: null,
 };
 
 // Reducer
@@ -36,14 +34,12 @@ export function appReducer(
       return (state = {
         data: [],
         loading: true,
-        error: [],
       });
 
     case actions.GET_FAILURE:
       return (state = {
         ...state,
         loading: false,
-        error: action.payload,
       });
 
     case actions.GET_DATA_SUCCESS:
@@ -90,8 +86,4 @@ export const getData = createSelector(selectAppState, (state: AppState) => {
 
 export const isLoading = createSelector(selectAppState, (state: AppState) => {
   return state.loading;
-});
-
-export const getError = createSelector(selectAppState, (state: AppState) => {
-  return state.error;
 });

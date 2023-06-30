@@ -18,6 +18,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppEffects } from 'src/app/store/effects';
 
 @Component({
   selector: 'app-grid',
@@ -34,14 +35,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   ],
 })
 export class GridComponent {
-  data$: Observable<Array<Post>>;
+  data$: Observable<Array<Post>> | undefined;
   loading: boolean = false;
   keys = reducers.displayKeysArray;
 
   constructor(
     private store: Store<reducers.AppState>,
     private ref: ChangeDetectorRef,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private appEffects: AppEffects
   ) {
     this.store
       .select(reducers.isLoading)
@@ -50,12 +52,13 @@ export class GridComponent {
         this.loading = loading as boolean;
         this.ref.markForCheck();
       });
-    this.store
-      .select(reducers.getError)
-      .pipe(takeUntilDestroyed())
-      .subscribe((e) => {
-        this.snackBar.open(e?.error?.message, undefined, { duration: 2000 });
-      });
+    this.appEffects.$getData.pipe(takeUntilDestroyed()).subscribe((action) => {
+      if (action.type === actions.GET_FAILURE) {
+        this.snackBar.open(action?.payload.message, undefined, {
+          duration: 2000,
+        });
+      }
+    });
     this.data$ = this.store.select(reducers.getData);
     this.store.dispatch(new actions.GetData());
   }

@@ -18,7 +18,7 @@ export class AppEffects {
           catchError((error) =>
             of(
               new actions.GetFailure({
-                error,
+                ...error,
               })
             )
           )
