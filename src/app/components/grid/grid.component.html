@@ -1,11 +1,6 @@
 <div class="container">
   <div class="header">
-    <div
-      class="chip background--{{ item | lowercase }}"
-      *ngFor="let item of keys"
-    >
-      {{ item }}
-    </div>
+    <app-chip-list [elements]="keys"></app-chip-list>
   </div>
   <br />
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

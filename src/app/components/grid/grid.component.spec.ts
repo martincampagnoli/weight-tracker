@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AppEffects } from 'src/app/store/effects';
 import { GetData } from 'src/app/store/actions';
+import { ChipListComponent } from '../chip-list/chip-list.component';
 
 const mockStore = { select: () => of(null), dispatch: (_action: any) => null };
 const mockAppEffects = { $getData: of(null) };
@@ -22,7 +23,7 @@ describe('GridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GridComponent],
+      declarations: [GridComponent, ChipListComponent],
       providers: [
         {
           provide: Store,
