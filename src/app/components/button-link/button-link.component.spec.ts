@@ -1,7 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { ButtonLinkComponent } from './button-link.component';
 import { MatIconModule } from '@angular/material/icon';
