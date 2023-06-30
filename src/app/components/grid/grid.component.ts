@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -34,7 +35,7 @@ import { AppEffects } from 'src/app/store/effects';
     ]),
   ],
 })
-export class GridComponent {
+export class GridComponent implements OnInit {
   data$: Observable<Array<Post>> | undefined;
   loading: boolean = false;
   keys = reducers.displayKeysArray;
@@ -60,6 +61,9 @@ export class GridComponent {
       }
     });
     this.data$ = this.store.select(reducers.getData);
+  }
+
+  ngOnInit(): void {
     this.store.dispatch(new actions.GetData());
   }
 }

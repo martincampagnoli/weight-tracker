@@ -11,6 +11,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AppEffects } from 'src/app/store/effects';
+import { GetData } from 'src/app/store/actions';
+
+const mockStore = { select: () => of(null), dispatch: (_action: any) => null };
+const mockAppEffects = { $getData: of(null) };
 
 describe('GridComponent', () => {
   let component: GridComponent;
@@ -22,11 +26,11 @@ describe('GridComponent', () => {
       providers: [
         {
           provide: Store,
-          useValue: { select: () => of(null), dispatch: () => null },
+          useValue: mockStore,
         },
         {
           provide: AppEffects,
-          useValue: { $getData: of(null) },
+          useValue: mockAppEffects,
         },
       ],
       imports: [
@@ -46,5 +50,13 @@ describe('GridComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should dispatch an action to get data on init', () => {
+    const dispatchSpy = spyOn(mockStore, 'dispatch');
+    const action = new GetData();
+    component.ngOnInit();
+    expect(dispatchSpy).toHaveBeenCalled();
+    expect(dispatchSpy).toHaveBeenCalledWith(action);
   });
 });
