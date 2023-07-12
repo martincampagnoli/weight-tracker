@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from '../models/Post';
+import { PlaceholderModel } from '../models/PlaceholderModel';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,9 @@ import { Post } from '../models/Post';
 export class DataService {
   constructor(private httpClient: HttpClient) {}
 
-  url = 'https://jsonplaceholder.typicode.com/posts';
+  readonly url = 'https://jsonplaceholder.typicode.com/posts';
 
-  getData(): Observable<Array<Post>> {
-    return this.httpClient.get<Array<Post>>(this.url);
+  getData(): Observable<Array<PlaceholderModel>> {
+    return this.httpClient.get<Array<PlaceholderModel>>(this.url);
   }
 }

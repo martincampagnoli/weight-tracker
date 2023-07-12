@@ -21,7 +21,6 @@ import { CircleLinkComponent } from './components/circle-link/circle-link.compon
 import { GridComponent } from './components/grid/grid.component';
 import { PostComponent } from './components/post/post.component';
 import { ButtonLinkComponent } from './components/button-link/button-link.component';
-import { ChipListComponent } from './components/chip-list/chip-list.component';
 
 const mat = [
   MatCardModule,
@@ -37,9 +36,6 @@ const mat = [
     MainComponent,
     ButtonLinkComponent,
     CircleLinkComponent,
-    ChipListComponent,
-    GridComponent,
-    PostComponent,
   ],
   imports: [
     BrowserModule,
