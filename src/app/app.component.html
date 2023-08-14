@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <a href="/">
+  <a [routerLink]="'/'">
     <img
       width="40"
       alt="Angular Logo"
@@ -11,6 +11,7 @@
 </div>
 
 <div class="content" role="main">
+  <app-main></app-main>
   <router-outlet></router-outlet>
 
   <!-- Links -->
