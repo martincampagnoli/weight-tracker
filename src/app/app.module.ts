@@ -11,14 +11,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { appReducer } from './old_store/reducers';
-import { AppEffects } from './old_store/effects';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
 import { ButtonLinkComponent } from './components/button-link/button-link.component';
+import { appReducer } from './store/default/default.reducers';
+import { AppEffects } from './store/default/default.effects';
 
 const mat = [
   MatCardModule,
