@@ -11,8 +11,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { appReducer } from './store/reducers';
-import { AppEffects } from './store/effects';
+import { appReducer } from './old_store/reducers';
+import { AppEffects } from './old_store/effects';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
