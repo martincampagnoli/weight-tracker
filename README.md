@@ -1,6 +1,6 @@
 # Interwhip
 
-Interwhip app built with [Angular](https://angular.io/) as frontend framework, [Angular Material](https://material.angular.io/) for design and styling and [NgRx](https://ngrx.io/) is used for state management.  
+Interwhip app built with [Angular](https://angular.io/) as frontend framework, [Angular Material](https://material.angular.io/) and [Bootstrap](https://getbootstrap.com/) for design and styling. [NgRx](https://ngrx.io/) is used for state management.  
 It provides basic app scaffolding to build test assessments.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
