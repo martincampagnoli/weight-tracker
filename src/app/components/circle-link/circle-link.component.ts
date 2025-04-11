@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  Input,
+} from '@angular/core';
 
 /**
  * Component representing a circular link with an image and title.
@@ -14,17 +19,17 @@ export class CircleLinkComponent {
   /**
    * The title of the circular link.
    */
-  @Input() title: string | undefined;
+  readonly title = input.required<string>();
 
   /**
    * The URL link associated with the circular link.
    */
-  @Input() link: string | undefined;
+  readonly link = input.required<string>();
 
   /**
    * The URL of the image to be displayed within the circular link.
    */
-  @Input() img: string | undefined;
+  readonly img = input.required<string>();
 
   /**
    * Constructs the CircleLinkComponent.
