@@ -4,10 +4,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
  * Component representing a button-styled link with label, route, and icon.
  */
 @Component({
-  selector: 'app-button-link',
-  templateUrl: './button-link.component.html',
-  styleUrls: ['./button-link.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-button-link',
+    templateUrl: './button-link.component.html',
+    styleUrls: ['./button-link.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ButtonLinkComponent {
   /**

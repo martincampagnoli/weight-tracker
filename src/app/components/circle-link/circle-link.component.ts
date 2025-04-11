@@ -4,10 +4,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
  * Component representing a circular link with an image and title.
  */
 @Component({
-  selector: 'app-circle-link',
-  templateUrl: './circle-link.component.html',
-  styleUrls: ['./circle-link.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-circle-link',
+    templateUrl: './circle-link.component.html',
+    styleUrls: ['./circle-link.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CircleLinkComponent {
   /**
