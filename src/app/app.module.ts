@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from '@angular/material/card';
@@ -28,25 +28,18 @@ const mat = [
   MatProgressBarModule,
 ];
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    ButtonLinkComponent,
-    CircleLinkComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('app', appReducer),
-    EffectsModule.forRoot([AppEffects]),
-    ...mat,
-  ],
-  exports: [...mat],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        MainComponent,
+        ButtonLinkComponent,
+        CircleLinkComponent,
+    ],
+    exports: [...mat],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('app', appReducer),
+        EffectsModule.forRoot([AppEffects]),
+        ...mat], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
