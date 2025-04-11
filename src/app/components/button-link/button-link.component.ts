@@ -1,14 +1,17 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 /**
  * Component representing a button-styled link with label, route, and icon.
  */
 @Component({
-    selector: 'app-button-link',
-    templateUrl: './button-link.component.html',
-    styleUrls: ['./button-link.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-button-link',
+  templateUrl: './button-link.component.html',
+  styleUrls: ['./button-link.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [MatIconModule, AppRoutingModule],
 })
 export class ButtonLinkComponent {
   /**
