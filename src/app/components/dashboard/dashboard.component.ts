@@ -18,7 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
   standalone: true,
   imports: [CommonModule, MatIcon, MatButton, MatPaginator, EntryComponent],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   readonly dialog = inject(MatDialog);
   store: Store = inject(Store);
   filteredData: Array<Entry> = [];
@@ -28,15 +28,14 @@ export class DashboardComponent implements OnInit {
   pageSize = 3;
   pageSizeOptions = [3, 9, 30, 90];
 
-  ngOnInit(): void {
-    this.store.dispatch(getData());
-
+  constructor() {
     this.store
       .select(reducers.getDataState)
       .pipe(takeUntilDestroyed())
       .subscribe((data) => {
         this.filteredData = data;
       });
+    this.store.dispatch(getData());
   }
 
   getPaginatorData(event: any): any {
