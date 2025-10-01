@@ -1,0 +1,49 @@
+.entry-card {
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.entry-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+  padding-top: 5px !important;
+  background-color: #f7f9ff;
+  border-bottom: 1px solid rgba(121, 116, 126, 0.12);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.entry-title {
+  font-size: large;
+}
+
+.entry-subtitle {
+  font-size: medium;
+}
+
+.entry-content {
+  padding-top: 16px;
+}
+
+.entry-description {
+  font-size: small;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.entry-actions {
+  font-size: small;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+mat-icon {
+  cursor: pointer;
+  margin-left: 8px;
+}
