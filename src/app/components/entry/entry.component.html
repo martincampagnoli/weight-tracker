@@ -1,10 +1,10 @@
 <mat-card appearance="outlined" class="entry-card">
   <mat-card-header class="entry-header">
     <mat-card-title class="entry-title">
-      <span>{{ entry?.weight }} Kgs</span>
+      <span>{{ entry().weight }} Kgs</span>
     </mat-card-title>
     <mat-card-subtitle class="entry-subtitle">
-      <span>{{ entry.date }}</span>
+      <span>{{ entry().date }}</span>
     </mat-card-subtitle>
     <div class="header-icons">
       <span [matMenuTriggerFor]="menu">
@@ -14,11 +14,15 @@
   </mat-card-header>
   <mat-card-content class="entry-content px-3">
     <p class="entry-description mb-4">
-      {{ entry.description ? entry.description : "No description provided." }}
+      {{
+        entry().description ? entry().description : "No description provided."
+      }}
     </p>
     <hr />
   </mat-card-content>
-  <mat-card-actions class="d-flex justify-content-between ps-2 pe-3 pt-1 entry-actions">
+  <mat-card-actions
+    class="d-flex justify-content-between ps-2 pe-3 pt-1 entry-actions"
+  >
   </mat-card-actions>
 </mat-card>
 

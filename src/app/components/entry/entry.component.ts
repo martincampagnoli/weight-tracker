@@ -1,7 +1,5 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { DataService } from 'src/app/services/data.service';
 import {
   MatCard,
   MatCardActions,
@@ -18,6 +16,8 @@ import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-d
 import { Store } from '@ngrx/store';
 import { deleteEntrySuccess } from 'src/app/store/default';
 import { SnackBarUtil } from 'src/app/utils/snackbar.util';
+import { Entry } from 'src/app/models/Entry';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-entry',
@@ -39,47 +39,35 @@ import { SnackBarUtil } from 'src/app/utils/snackbar.util';
     MatFormFieldModule,
   ],
 })
-export class EntryComponent implements OnInit {
-  store: Store = inject(Store);
-  snackBarUtil: SnackBarUtil = inject(SnackBarUtil);
-  @Input() entry: any;
-  @Input() index: number | undefined;
+export class EntryComponent {
+  private store: Store = inject(Store);
+  private snackBarUtil: SnackBarUtil = inject(SnackBarUtil);
+  private destroyRef = inject(DestroyRef);
+  readonly entry = input.required<Entry>();
   readonly dialog = inject(MatDialog);
-  editingField: string | null = null;
-
-  constructor(private dataService: DataService, private router: Router) {}
-
-  ngOnInit(): void {}
-
-  private formatDate = (iso: string | null | undefined): string => {
-    if (!iso) return '';
-    const d = new Date(iso.toString().endsWith('Z') ? iso : iso + 'Z');
-    return `${d.getUTCDate().toString().padStart(2, '0')}-${(
-      d.getUTCMonth() + 1
-    )
-      .toString()
-      .padStart(2, '0')}-${d.getUTCFullYear()}`;
-  };
 
   deleteEntry(): void {
     this.store.dispatch(
-      deleteEntrySuccess({ payload: { id: this.entry.id } })
+      deleteEntrySuccess({ payload: { id: this.entry().id } })
     );
     this.snackBarUtil.show('Entry deleted successfully');
   }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
-      data: { entryId: this.entry.id },
+      data: { entryId: this.entry().id },
       width: '250px',
       enterAnimationDuration: '0ms',
       exitAnimationDuration: '0ms',
     });
 
-    dialogRef.afterClosed().subscribe((confirm) => {
-      if (confirm) {
-        this.deleteEntry();
-      }
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((confirm) => {
+        if (confirm) {
+          this.deleteEntry();
+        }
+      });
   }
 }
