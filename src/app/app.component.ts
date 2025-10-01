@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
-import { MainComponent } from './components/main/main.component';
 
 /**
  * The root component of the Angular application.
@@ -11,11 +10,11 @@ import { MainComponent } from './components/main/main.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterOutlet, RouterLink, CircleLinkComponent, MainComponent],
+  imports: [RouterOutlet, RouterLink, CircleLinkComponent],
 })
 export class AppComponent {
   /**
    * The title of the application.
    */
-  title = 'assessment';
+  title = 'Dialog Assessment';
 }
