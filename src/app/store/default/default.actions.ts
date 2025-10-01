@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Entry } from 'src/app/models/Entry';
 
 /**
  * Action representing a failure during data retrieval.
@@ -11,17 +12,14 @@ export const getFailure = createAction(
 /**
  * Action to initiate retrieval of data.
  */
-export const getData = createAction(
-  '[Movie] Get Movies',
-  props<{ payload: any }>()
-);
+export const getData = createAction('[Entry] Get Entries');
 
 /**
  * Action indicating successful retrieval of data.
  */
 export const getDataSuccess = createAction(
-  '[Movie] Get Movies Success',
-  props<{ payload: any }>()
+  '[Entry] Get Entries Success',
+  props<{ payload: Entry[] }>()
 );
 
 /**

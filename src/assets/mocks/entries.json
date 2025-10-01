@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "weight": 200,
+    "date": "2023-10-01",
+    "description": "Sample entry 1"
+  },
+  {
+    "id": 2,
+    "weight": 195,
+    "date": "2023-10-02",
+    "description": "Sample entry 2"
+  },
+  {
+    "id": 3,
+    "weight": 190,
+    "date": "2023-10-03",
+    "description": "Sample entry 3"
+  },
+  {
+    "id": 4,
+    "weight": 185,
+    "date": "2023-10-04",
+    "description": "Sample entry 4"
+  },
+  {
+    "id": 5,
+    "weight": 180,
+    "date": "2023-10-05",
+    "description": "Sample entry 5"
+  },
+  {
+    "id": 6,
+    "weight": 175,
+    "date": "2023-10-06",
+    "description": "Sample entry 6"
+  },
+  {
+    "id": 7,
+    "weight": 170,
+    "date": "2023-10-07",
+    "description": "Sample entry 7"
+  },
+  {
+    "id": 8,
+    "weight": 165,
+    "date": "2023-10-08",
+    "description": "Sample entry 8"
+  },
+  {
+    "id": 9,
+    "weight": 160,
+    "date": "2023-10-09",
+    "description": "Sample entry 9"
+  },
+  {
+    "id": 10,
+    "weight": 155,
+    "date": "2023-10-10",
+    "description": "Sample entry 10"
+  }
+]

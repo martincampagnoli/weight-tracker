@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PlaceholderModel } from '../models/PlaceholderModel';
+import { Entry } from '../models/Entry';
 
 /**
  * Service for fetching data from the external API.
@@ -12,14 +12,14 @@ import { PlaceholderModel } from '../models/PlaceholderModel';
 export class DataService {
   constructor(private httpClient: HttpClient) {}
 
-  readonly url = 'https://jsonplaceholder.typicode.com/posts';
+  readonly url = 'assets/mocks/entries.json';
 
   /**
    * Get data from the API.
    *
    * @returns An observable containing an array of data results.
    */
-  getData(): Observable<Array<PlaceholderModel>> {
-    return this.httpClient.get<Array<PlaceholderModel>>(this.url);
+  getData(): Observable<Array<Entry>> {
+    return this.httpClient.get<Array<Entry>>(this.url);
   }
 }
