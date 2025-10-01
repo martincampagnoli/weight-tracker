@@ -54,7 +54,7 @@ export class EntryComponent {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       data: { entryId: this.entry().id },
       width: '250px',
       enterAnimationDuration: '0ms',

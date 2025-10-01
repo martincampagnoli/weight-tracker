@@ -8,6 +8,4 @@ import { ButtonLinkComponent } from '../button-link/button-link.component';
   standalone: true,
   imports: [ButtonLinkComponent],
 })
-export class MainComponent {
-  constructor() {}
-}
+export class MainComponent {}

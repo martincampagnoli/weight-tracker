@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
@@ -20,8 +20,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DashboardComponent {
   readonly dialog = inject(MatDialog);
-  store: Store = inject(Store);
-  filteredData: Array<Entry> = [];
+  private store: Store = inject(Store);
+  protected filteredData: Array<Entry> = [];
 
   lowValue = 0;
   highValue = 3;

@@ -19,7 +19,6 @@ describe('ButtonLinkComponent', () => {
     component = fixture.componentInstance;
     element = fixture.nativeElement;
 
-    // Set input signals using fixture.componentRef.setInput
     fixture.componentRef.setInput('label', 'Test Label');
     fixture.componentRef.setInput('route', '/test-route');
     fixture.componentRef.setInput('icon', 'fa fa-icon');

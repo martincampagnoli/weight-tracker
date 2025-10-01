@@ -5,7 +5,6 @@ import {
   MatDialogClose,
   MatDialogTitle,
   MatDialogContent,
-  MatDialogRef,
 } from '@angular/material/dialog';
 
 @Component({
@@ -21,6 +20,4 @@ import {
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ConfirmDeleteDialogComponent {
-  readonly dialogRef = inject(MatDialogRef<ConfirmDeleteDialogComponent>);
-}
+export class ConfirmDeleteDialogComponent {}
