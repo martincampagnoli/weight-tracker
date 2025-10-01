@@ -1,0 +1,21 @@
+.dashboard-container {
+  margin-top: 32px;
+  border: solid 1px;
+  border-radius: 4px;
+  border-color: rgb(217, 224, 232);
+}
+
+.dashboard-section {
+  padding-right: 16px;
+  padding-left: 16px;
+  padding-top: 5px;
+}
+
+.entries-count {
+  font-size: x-large;
+  font-weight: 400;
+}
+
+.entry-grid-item {
+  overflow: hidden;
+}
