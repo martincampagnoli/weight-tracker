@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainComponent should match snapshot 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="card-container"
+  >
+    <app-button-link>
+      <a
+        class="card w-100 pb-3 pt-3"
+        href="/placeholder"
+        rel="noopener"
+      >
+        <mat-icon
+          aria-hidden="true"
+          class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+          data-mat-icon-type="font"
+          role="img"
+        >
+          grid_on
+        </mat-icon>
+        <span>
+          Placeholder button
+        </span>
+        <mat-icon
+          aria-hidden="true"
+          class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+          data-mat-icon-type="font"
+          role="img"
+        >
+          chevron_right
+        </mat-icon>
+      </a>
+    </app-button-link>
+  </div>
+</div>
+`;

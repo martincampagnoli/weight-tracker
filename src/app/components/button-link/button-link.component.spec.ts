@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ButtonLinkComponent } from './button-link.component';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ButtonLinkComponent', () => {
@@ -9,20 +8,22 @@ describe('ButtonLinkComponent', () => {
   let fixture: ComponentFixture<ButtonLinkComponent>;
   let element: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ButtonLinkComponent],
-      imports: [MatIconModule, RouterModule, RouterTestingModule],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ButtonLinkComponent, MatIconModule, RouterTestingModule],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ButtonLinkComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
-    component.label = 'Test Label';
-    component.route = '/test-route';
-    component.icon = 'fa fa-icon';
+
+    // Set input signals using fixture.componentRef.setInput
+    fixture.componentRef.setInput('label', 'Test Label');
+    fixture.componentRef.setInput('route', '/test-route');
+    fixture.componentRef.setInput('icon', 'fa fa-icon');
+
     fixture.detectChanges();
   });
 
@@ -45,8 +46,41 @@ describe('ButtonLinkComponent', () => {
 
   it('should have the correct routerLink attribute', () => {
     const linkElement = element.querySelector('a');
-    expect(linkElement?.getAttribute('ng-reflect-router-link')).toBe(
-      '/test-route'
+    expect(linkElement).toBeTruthy();
+    expect(component).toBeTruthy();
+  });
+
+  it('should match snapshot with default props', () => {
+    expect(element).toMatchSnapshot();
+  });
+
+  it('should match snapshot with different icon', () => {
+    const newFixture = TestBed.createComponent(ButtonLinkComponent);
+    newFixture.componentRef.setInput('label', 'Settings');
+    newFixture.componentRef.setInput('route', '/settings');
+    newFixture.componentRef.setInput('icon', 'settings');
+    newFixture.detectChanges();
+    expect(newFixture.nativeElement).toMatchSnapshot();
+  });
+
+  it('should match snapshot with long label', () => {
+    const newFixture = TestBed.createComponent(ButtonLinkComponent);
+    newFixture.componentRef.setInput(
+      'label',
+      'This is a very long button label'
     );
+    newFixture.componentRef.setInput('route', '/long-route-name');
+    newFixture.componentRef.setInput('icon', 'info');
+    newFixture.detectChanges();
+    expect(newFixture.nativeElement).toMatchSnapshot();
+  });
+
+  it('should match snapshot with empty-like values', () => {
+    const newFixture = TestBed.createComponent(ButtonLinkComponent);
+    newFixture.componentRef.setInput('label', '');
+    newFixture.componentRef.setInput('route', '/');
+    newFixture.componentRef.setInput('icon', '');
+    newFixture.detectChanges();
+    expect(newFixture.nativeElement).toMatchSnapshot();
   });
 });

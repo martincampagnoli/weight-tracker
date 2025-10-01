@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CircleLinkComponent } from './circle-link.component';
 
 describe('CircleLinkComponent', () => {
@@ -6,19 +6,20 @@ describe('CircleLinkComponent', () => {
   let fixture: ComponentFixture<CircleLinkComponent>;
   let element: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [CircleLinkComponent],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CircleLinkComponent],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CircleLinkComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
-    component.title = 'Test Title';
-    component.link = 'https://example.com';
-    component.img = 'test-image.jpg';
+
+    fixture.componentRef.setInput('title', 'Test Title');
+    fixture.componentRef.setInput('link', 'https://example.com');
+    fixture.componentRef.setInput('img', 'test-image.jpg');
 
     fixture.detectChanges();
   });
@@ -46,5 +47,30 @@ describe('CircleLinkComponent', () => {
     const linkElement = element.querySelector('a');
     expect(linkElement?.getAttribute('target')).toBe('_blank');
     expect(linkElement?.getAttribute('rel')).toBe('noopener');
+  });
+
+  it('should match snapshot with default props', () => {
+    expect(element).toMatchSnapshot();
+  });
+
+  it('should match snapshot with different props', () => {
+    const newFixture = TestBed.createComponent(CircleLinkComponent);
+    newFixture.componentRef.setInput('title', 'Documentation');
+    newFixture.componentRef.setInput('link', 'https://angular.io');
+    newFixture.componentRef.setInput('img', 'angular-logo.png');
+    newFixture.detectChanges();
+    expect(newFixture.nativeElement).toMatchSnapshot();
+  });
+
+  it('should match snapshot with special characters in title', () => {
+    const newFixture = TestBed.createComponent(CircleLinkComponent);
+    newFixture.componentRef.setInput('title', 'My Awesome App & More!');
+    newFixture.componentRef.setInput(
+      'link',
+      'https://example.com/path?param=value'
+    );
+    newFixture.componentRef.setInput('img', 'icon-with-special-chars.svg');
+    newFixture.detectChanges();
+    expect(newFixture.nativeElement).toMatchSnapshot();
   });
 });
