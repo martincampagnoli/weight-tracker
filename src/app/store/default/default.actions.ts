@@ -23,6 +23,22 @@ export const getDataSuccess = createAction(
 );
 
 /**
+ * Action to add a new entry.
+ */
+export const addEntrySuccess = createAction(
+  '[Default] Add Entry Success',
+  props<{ payload: { entry: Entry } }>()
+);
+
+/**
+ * Action to delete a new entry.
+ */
+export const deleteEntrySuccess = createAction(
+  '[Default] Delete Entry Success',
+  props<{ payload: { id: number } }>()
+);
+
+/**
  * Action to reset the application state.
  */
 export const resetAppState = createAction('[Default] Reset app state');

@@ -5,7 +5,12 @@ import {
   createSelector,
   on,
 } from '@ngrx/store';
-import { getDataSuccess, resetAppState } from './default.actions';
+import {
+  addEntrySuccess,
+  deleteEntrySuccess,
+  getDataSuccess,
+  resetAppState,
+} from './default.actions';
 import { Entry } from 'src/app/models/Entry';
 
 /**
@@ -41,6 +46,20 @@ const reducer = createReducer(
       ...state,
       loading: false,
       data: payload,
+    };
+  }),
+  on(deleteEntrySuccess, (state, { payload }) => {
+    return {
+      ...state,
+      loading: false,
+      data: state.data.filter((entry) => entry.id !== payload.id),
+    };
+  }),
+  on(addEntrySuccess, (state, { payload }) => {
+    return {
+      ...state,
+      loading: false,
+      data: [...state.data, payload.entry],
     };
   })
 );
