@@ -3,7 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { getData } from 'src/app/store/default';
 import { EntryComponent } from '../entry/entry.component';
@@ -38,7 +38,7 @@ export class DashboardComponent {
     this.store.dispatch(getData());
   }
 
-  getPaginatorData(event: any): any {
+  getPaginatorData(event: PageEvent): PageEvent {
     this.lowValue = event.pageIndex * event.pageSize;
     this.highValue = this.lowValue + event.pageSize;
     return event;

@@ -151,14 +151,14 @@ describe('SnackBarUtil', () => {
 
   describe('error handling', () => {
     it('should handle null message gracefully', () => {
-      expect(() => service.show(null as any)).not.toThrow();
+      expect(() => service.show(null as unknown as string)).not.toThrow();
       expect(mockMatSnackBar.open).toHaveBeenCalledWith(null, '', {
         duration: 2000,
       });
     });
 
     it('should handle undefined message gracefully', () => {
-      expect(() => service.show(undefined as any)).not.toThrow();
+      expect(() => service.show(undefined as unknown as string)).not.toThrow();
       expect(mockMatSnackBar.open).toHaveBeenCalledWith(undefined, '', {
         duration: 2000,
       });
