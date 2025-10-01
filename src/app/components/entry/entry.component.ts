@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 import { Store } from '@ngrx/store';
-import { deleteEntrySuccess } from 'src/app/store/default';
+import { deleteEntry } from 'src/app/store/default';
 import { SnackBarUtil } from 'src/app/utils/snackbar.util';
 import { Entry } from 'src/app/models/Entry';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -47,9 +47,7 @@ export class EntryComponent {
   readonly dialog = inject(MatDialog);
 
   deleteEntry(): void {
-    this.store.dispatch(
-      deleteEntrySuccess({ payload: { id: this.entry().id } })
-    );
+    this.store.dispatch(deleteEntry({ payload: { id: this.entry().id } }));
     this.snackBarUtil.show('Entry deleted successfully');
   }
 

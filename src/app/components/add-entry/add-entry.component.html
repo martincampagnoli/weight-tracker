@@ -1,0 +1,60 @@
+<mat-stepper #stepper linear [orientation]="'vertical'" class="stepper-form">
+  <mat-step
+    [stepControl]="firstFormGroup"
+    label="Insert Weight"
+    [editable]="false"
+  >
+    <form [formGroup]="firstFormGroup">
+      <mat-form-field class="pe-1 pt-1 weight-input">
+        <input matInput formControlName="weight" required />
+      </mat-form-field>
+      <br />
+      <div class="button-container">
+        <button mat-button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step
+    [stepControl]="secondFormGroup"
+    label="Insert Date"
+    [editable]="false"
+  >
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field class="pe-1 pt-3" style="width: 75%">
+        <input matInput formControlName="date" [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="pt-2">
+        <button mat-button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Add description (optional)" [editable]="false">
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field class="pt-1">
+        <input
+          matInput
+          formControlName="description"
+          placeholder="Enter description"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button mat-raised-button matStepperNext>next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <div class="pt-2">
+      <button mat-button="tonal" (click)="stepper.reset()" class="me-1">
+        Reset
+      </button>
+      <button mat-button mat-raised-button (click)="addEntry()">Submit</button>
+    </div>
+  </mat-step>
+</mat-stepper>

@@ -6,8 +6,8 @@ import {
   on,
 } from '@ngrx/store';
 import {
-  addEntrySuccess,
-  deleteEntrySuccess,
+  createEntry,
+  deleteEntry,
   getDataSuccess,
   resetAppState,
 } from './default.actions';
@@ -19,6 +19,7 @@ import { Entry } from 'src/app/models/Entry';
 export interface AppState {
   loading: boolean;
   data: Entry[];
+  nextId: number;
 }
 
 /**
@@ -27,6 +28,7 @@ export interface AppState {
 const initialState: AppState = {
   loading: false,
   data: [],
+  nextId: 1,
 };
 
 /**
@@ -42,24 +44,35 @@ const reducer = createReducer(
     ...initialState,
   })),
   on(getDataSuccess, (state, { payload }) => {
+    const maxId =
+      payload.length > 0 ? Math.max(...payload.map((entry) => entry.id)) : 0;
     return {
       ...state,
       loading: false,
       data: payload,
+      nextId: maxId + 1,
     };
   }),
-  on(deleteEntrySuccess, (state, { payload }) => {
+  on(deleteEntry, (state, { payload }) => {
     return {
       ...state,
       loading: false,
       data: state.data.filter((entry) => entry.id !== payload.id),
     };
   }),
-  on(addEntrySuccess, (state, { payload }) => {
+  on(createEntry, (state, { payload }) => {
+    const newEntry: Entry = {
+      id: state.nextId,
+      weight: payload.weight,
+      date: payload.date,
+      description: payload.description,
+    };
+
     return {
       ...state,
       loading: false,
-      data: [...state.data, payload.entry],
+      data: [newEntry, ...state.data],
+      nextId: state.nextId + 1,
     };
   })
 );
@@ -91,4 +104,12 @@ export const getAppState = createSelector(
 export const getDataState = createSelector(
   selectAppState,
   (state: AppState) => state.data
+);
+
+/**
+ * Selector to get the next available ID for new entries.
+ */
+export const getNextEntryId = createSelector(
+  selectAppState,
+  (state: AppState): number => state.nextId
 );

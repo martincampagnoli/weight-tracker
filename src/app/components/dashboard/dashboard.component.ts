@@ -10,6 +10,7 @@ import { EntryComponent } from '../entry/entry.component';
 import { Entry } from 'src/app/models/Entry';
 import * as reducers from 'src/app/store/default';
 import { MatDialog } from '@angular/material/dialog';
+import { AddEntryDialogComponent } from '../add-entry-dialog/add-entry-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -44,5 +45,11 @@ export class DashboardComponent {
     return event;
   }
 
-  openDialog(): void {}
+  openDialog(): void {
+    this.dialog.open(AddEntryDialogComponent, {
+      width: '400px',
+      enterAnimationDuration: '0ms',
+      exitAnimationDuration: '0ms',
+    });
+  }
 }

@@ -23,18 +23,19 @@ export const getDataSuccess = createAction(
 );
 
 /**
- * Action to add a new entry.
+ * Action to add a new entry (without ID - will be assigned by store).
+
  */
-export const addEntrySuccess = createAction(
-  '[Default] Add Entry Success',
-  props<{ payload: { entry: Entry } }>()
+export const createEntry = createAction(
+  '[Default] Create Entry',
+  props<{ payload: { weight: number; date: string; description?: string } }>()
 );
 
 /**
  * Action to delete a new entry.
  */
-export const deleteEntrySuccess = createAction(
-  '[Default] Delete Entry Success',
+export const deleteEntry = createAction(
+  '[Default] Delete Entry',
   props<{ payload: { id: number } }>()
 );
 
