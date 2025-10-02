@@ -1,10 +1,19 @@
 <div class="container dashboard-container">
   <section class="mx-auto mb-2 dashboard-section">
     <div class="row align-items-center flex-wrap">
-      <div class="col-md-6 p-2">
-        <span class="entries-count">
+      <div class="col-md-6 p-2 d-flex align-items-center gap-2">
+        <span class="entries-count text-nowrap min-width-90">
           {{ filteredData().length + " entries" }}
         </span>
+        @if (goal()) {
+        <app-progress-bar />
+        } @else {
+        <div class="w-100 d-flex justify-content-center">
+          <span class="goal-message"
+            >Set a weight goal to improve your health...</span
+          >
+        </div>
+        }
       </div>
       <div class="col-md-6 p-2">
         <div class="row justify-content-md-end justify-content-center">

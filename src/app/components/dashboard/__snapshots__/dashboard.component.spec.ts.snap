@@ -4,6 +4,7 @@ exports[`DashboardComponent Component Creation should match snapshot 1`] = `
 <app-dashboard
   dialog={[Function Object]}
   filteredData={[Function Function]}
+  goal={[Function Function]}
   highValue={[Function Number]}
   lowValue="0"
   pageSize={[Function Number]}
@@ -20,13 +21,65 @@ exports[`DashboardComponent Component Creation should match snapshot 1`] = `
         class="row align-items-center flex-wrap"
       >
         <div
-          class="col-md-6 p-2"
+          class="col-md-6 p-2 d-flex align-items-center gap-2"
         >
           <span
-            class="entries-count"
+            class="entries-count text-nowrap min-width-90"
           >
              5 entries 
           </span>
+          <app-progress-bar
+            class="w-75"
+          >
+            <div
+              class="w-100"
+            >
+              <span
+                class="goal-label"
+              >
+                to reach the goal: 75 kgs
+              </span>
+              <mat-progress-bar
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="75"
+                class="mat-mdc-progress-bar mdc-linear-progress goal-progress-bar mat-primary _mat-animation-noopable"
+                mode="buffer"
+                role="progressbar"
+                tabindex="-1"
+              >
+                <div
+                  aria-hidden="true"
+                  class="mdc-linear-progress__buffer"
+                >
+                  <div
+                    class="mdc-linear-progress__buffer-bar"
+                    style="flex-basis: 0%;"
+                  />
+                  <div
+                    class="mdc-linear-progress__buffer-dots"
+                  />
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"
+                  style="transform: scaleX(0.75);"
+                >
+                  <span
+                    class="mdc-linear-progress__bar-inner"
+                  />
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"
+                >
+                  <span
+                    class="mdc-linear-progress__bar-inner"
+                  />
+                </div>
+              </mat-progress-bar>
+            </div>
+          </app-progress-bar>
         </div>
         <div
           class="col-md-6 p-2"

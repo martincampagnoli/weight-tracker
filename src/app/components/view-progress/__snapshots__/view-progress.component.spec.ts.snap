@@ -31,6 +31,7 @@ exports[`ViewProgressComponent Chart Configuration should match chart options sn
 exports[`ViewProgressComponent Component Creation should match snapshot 1`] = `
 <app-view-progress
   CHART_CONFIG={[Function Object]}
+  dataService={[Function Object]}
   destroyRef={[Function NodeInjectorDestroyRef]}
   store={[Function _MockStore]}
   weightChartData="null"

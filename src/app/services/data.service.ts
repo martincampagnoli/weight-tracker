@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Entry } from '../models/Entry';
 
@@ -10,8 +10,7 @@ import { Entry } from '../models/Entry';
   providedIn: 'root',
 })
 export class DataService {
-  constructor(private httpClient: HttpClient) {}
-
+  private httpClient = inject(HttpClient);
   readonly url = 'assets/mocks/entries.json';
 
   /**
@@ -21,5 +20,18 @@ export class DataService {
    */
   getData(): Observable<Array<Entry>> {
     return this.httpClient.get<Array<Entry>>(this.url);
+  }
+
+  sortEntriesByDate(entries: Entry[]): Entry[] {
+    return [...entries].sort((a, b) => {
+      const dateA = this.parseDate(a.date);
+      const dateB = this.parseDate(b.date);
+      return dateA.getTime() - dateB.getTime();
+    });
+  }
+
+  private parseDate(dateString: string): Date {
+    const [day, month, year] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day);
   }
 }

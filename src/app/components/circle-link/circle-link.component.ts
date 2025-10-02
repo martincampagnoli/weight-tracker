@@ -25,9 +25,4 @@ export class CircleLinkComponent {
    * The URL of the image to be displayed within the circular link.
    */
   readonly img = input.required<string>();
-
-  /**
-   * Constructs the CircleLinkComponent.
-   */
-  constructor() {}
 }

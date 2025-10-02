@@ -4,18 +4,22 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PageEvent } from '@angular/material/paginator';
 import { of } from 'rxjs';
-
 import { DashboardComponent } from './dashboard.component';
 import { Entry } from 'src/app/models/Entry';
 import * as reducers from 'src/app/store/default';
 import { AddEntryDialogComponent } from '../add-entry-dialog/add-entry-dialog.component';
 import { ViewProgressDialogComponent } from '../view-progress-dialog/view-progress-dialog.component';
+import { GoalService } from 'src/app/services/goal.service';
+import { AddGoalDialogComponent } from '../add-goal-dialog/add-goal-dialog.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
   let store: MockStore;
   let mockDialog: jest.Mocked<MatDialog>;
+  const mockGoalService = {
+    calculateGoalProgress: jest.fn().mockReturnValue(75),
+  };
 
   const mockEntries: Entry[] = [
     { id: 1, weight: 70, date: '01-01-2024', description: 'Start' },
@@ -37,6 +41,7 @@ describe('DashboardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [DashboardComponent, NoopAnimationsModule],
       providers: [
+        { provide: GoalService, useValue: mockGoalService },
         provideMockStore({ initialState }),
         {
           provide: MatDialog,
@@ -46,8 +51,8 @@ describe('DashboardComponent', () => {
     }).compileComponents();
 
     store = TestBed.inject(MockStore);
-    // Ensure selectors return expected data
     store.overrideSelector(reducers.getDataState, mockEntries);
+    store.overrideSelector(reducers.getTargetWeight, 75);
 
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
@@ -162,10 +167,10 @@ describe('DashboardComponent', () => {
       });
     });
 
-    it('should open AddEntryDialogComponent for setWeightGoal type', () => {
+    it('should open AddGoalDialogComponent for setWeightGoal type', () => {
       component.openDialog('setWeightGoal');
 
-      expect(mockDialog.open).toHaveBeenCalledWith(AddEntryDialogComponent, {
+      expect(mockDialog.open).toHaveBeenCalledWith(AddGoalDialogComponent, {
         width: '400px',
         enterAnimationDuration: '0ms',
         exitAnimationDuration: '0ms',
@@ -176,6 +181,7 @@ describe('DashboardComponent', () => {
   describe('Template Rendering', () => {
     beforeEach(() => {
       store.overrideSelector(reducers.getDataState, mockEntries);
+      store.overrideSelector(reducers.getTargetWeight, 65);
       store.refreshState();
       fixture.detectChanges();
     });

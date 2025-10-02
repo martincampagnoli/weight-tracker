@@ -109,4 +109,32 @@ describe('DataService', () => {
       expect(service).toBeInstanceOf(DataService);
     });
   });
+
+  describe('Handling Dates', () => {
+    it('should parseDate correctly', () => {
+      const parseDate = service['parseDate'].bind(service);
+      const date = parseDate('15-03-2024');
+
+      expect(date.getFullYear()).toBe(2024);
+      expect(date.getMonth()).toBe(2);
+      expect(date.getDate()).toBe(15);
+    });
+
+    it('should sortEntriesByDate correctly', () => {
+      const unsortedEntries: Entry[] = [
+        { id: 2, weight: 68, date: '15-01-2024', description: 'Middle' },
+        { id: 1, weight: 70, date: '01-01-2024', description: 'Earliest' },
+        { id: 3, weight: 65, date: '01-02-2024', description: 'Latest' },
+      ];
+
+      const sortEntriesByDate = service['sortEntriesByDate'].bind(service);
+      const sorted = sortEntriesByDate(unsortedEntries);
+
+      expect(sorted.map((entry: Entry) => entry.date)).toEqual([
+        '01-01-2024',
+        '15-01-2024',
+        '01-02-2024',
+      ]);
+    });
+  });
 });

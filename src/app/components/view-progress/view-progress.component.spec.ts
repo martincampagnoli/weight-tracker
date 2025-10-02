@@ -1,19 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { MatDialogRef } from '@angular/material/dialog';
-import { signal } from '@angular/core';
 import { of } from 'rxjs';
 
 import { ViewProgressComponent } from './view-progress.component';
 import { Entry } from 'src/app/models/Entry';
 import * as reducers from 'src/app/store/default';
+import { DataService } from 'src/app/services/data.service';
 
 describe('ViewProgressComponent', () => {
   let component: ViewProgressComponent;
   let fixture: ComponentFixture<ViewProgressComponent>;
   let store: MockStore;
-  let mockDialogRef: jest.Mocked<MatDialogRef<ViewProgressComponent>>;
 
   const mockEntries: Entry[] = [
     { id: 1, weight: 70, date: '01-01-2024', description: 'Start' },
@@ -26,15 +23,18 @@ describe('ViewProgressComponent', () => {
   };
 
   beforeEach(async () => {
-    mockDialogRef = {
-      close: jest.fn(),
-      afterClosed: jest.fn().mockReturnValue(of(true)),
-      beforeClosed: jest.fn().mockReturnValue(of(true)),
-    } as any;
-
     await TestBed.configureTestingModule({
       imports: [ViewProgressComponent],
-      providers: [provideMockStore({ initialState })],
+      providers: [
+        provideMockStore({ initialState }),
+        {
+          provide: DataService,
+          useValue: {
+            getData: jest.fn().mockReturnValue(of(mockEntries)),
+            sortEntriesByDate: jest.fn().mockReturnValue(mockEntries),
+          },
+        },
+      ],
     }).compileComponents();
 
     store = TestBed.inject(MockStore);
@@ -108,69 +108,7 @@ describe('ViewProgressComponent', () => {
     });
   });
 
-  describe('Date Sorting', () => {
-    it('should sort entries by date chronologically', () => {
-      const unsortedEntries: Entry[] = [
-        { id: 3, weight: 65, date: '01-02-2024', description: 'Latest' },
-        { id: 1, weight: 70, date: '01-01-2024', description: 'Earliest' },
-        { id: 2, weight: 68, date: '15-01-2024', description: 'Middle' },
-      ];
-
-      store.overrideSelector(reducers.getDataState, unsortedEntries);
-      fixture.detectChanges();
-
-      expect(component.weightChartData!.labels).toEqual([
-        '01-01-2024',
-        '15-01-2024',
-        '01-02-2024',
-      ]);
-    });
-
-    it('should handle different date formats correctly', () => {
-      const mixedDateEntries: Entry[] = [
-        { id: 1, weight: 70, date: '31-12-2023', description: 'New Year' },
-        { id: 2, weight: 68, date: '01-01-2024', description: 'New Year+1' },
-      ];
-
-      store.overrideSelector(reducers.getDataState, mixedDateEntries);
-      fixture.detectChanges();
-
-      expect(component.weightChartData!.labels).toEqual([
-        '31-12-2023',
-        '01-01-2024',
-      ]);
-    });
-  });
-
   describe('Private Methods', () => {
-    it('should parseDate correctly', () => {
-      const parseDate = (component as any).parseDate.bind(component);
-      const date = parseDate('15-03-2024');
-
-      expect(date.getFullYear()).toBe(2024);
-      expect(date.getMonth()).toBe(2);
-      expect(date.getDate()).toBe(15);
-    });
-
-    it('should sortEntriesByDate correctly', () => {
-      const unsortedEntries: Entry[] = [
-        { id: 2, weight: 68, date: '15-01-2024', description: 'Middle' },
-        { id: 1, weight: 70, date: '01-01-2024', description: 'Earliest' },
-        { id: 3, weight: 65, date: '01-02-2024', description: 'Latest' },
-      ];
-
-      const sortEntriesByDate = (component as any).sortEntriesByDate.bind(
-        component
-      );
-      const sorted = sortEntriesByDate(unsortedEntries);
-
-      expect(sorted.map((entry: Entry) => entry.date)).toEqual([
-        '01-01-2024',
-        '15-01-2024',
-        '01-02-2024',
-      ]);
-    });
-
     it('should createChartData with correct structure', () => {
       const createChartData = (component as any).createChartData.bind(
         component

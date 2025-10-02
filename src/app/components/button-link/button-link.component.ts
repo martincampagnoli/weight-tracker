@@ -28,9 +28,4 @@ export class ButtonLinkComponent {
    * The name or class of the icon to be displayed within the button-styled link.
    */
   readonly icon = input.required<string>();
-
-  /**
-   * Constructs the ButtonLinkComponent.
-   */
-  constructor() {}
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of, catchError, switchMap } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
@@ -11,13 +11,8 @@ import { Entry } from 'src/app/models/Entry';
  */
 @Injectable()
 export class AppEffects {
-  /**
-   * Constructs the AppEffects.
-   *
-   * @param actions$ Observable stream of dispatched actions.
-   * @param moviesService The service for fetching data.
-   */
-  constructor(private actions$: Actions, private dataService: DataService) {}
+  private dataService = inject(DataService);
+  private actions$ = inject(Actions);
 
   /**
    * Effect to fetch data.

@@ -1,0 +1,16 @@
+<div class="w-100">
+  @if (progress()! < 100) {
+  <span class="goal-label">to reach the goal: {{ goal$ | async }} kgs</span>
+  } @else {
+  <span class="goal-label"
+    >Congratulations! Goal of {{ goal$ | async }} kgs reached!</span
+  >
+  }
+  <mat-progress-bar
+    class="goal-progress-bar"
+    [mode]="'buffer'"
+    [value]="progress()"
+    [bufferValue]="0"
+  >
+  </mat-progress-bar>
+</div>

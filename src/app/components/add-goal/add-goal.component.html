@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup">
+  <mat-form-field class="pe-1 pt-1 w-100">
+    <mat-label>kgs</mat-label>
+    <input matInput formControlName="targetWeight" required />
+  </mat-form-field>
+</form>
+<div class="pt-2">
+  <button mat-button="tonal" (click)="reset()" class="me-1">
+    Reset current goal
+  </button>
+  <button mat-button mat-raised-button (click)="setGoal()">Set new goal</button>
+</div>

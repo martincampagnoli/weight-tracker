@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 import * as reducers from 'src/app/store/default';
 import { Entry } from 'src/app/models/Entry';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DataService } from 'src/app/services/data.service';
 
 interface ChartDataset {
   label: string;
@@ -56,6 +57,7 @@ interface ChartOptions {
 export class ViewProgressComponent implements OnInit {
   private readonly store = inject(Store<reducers.AppState>);
   private destroyRef = inject(DestroyRef);
+  private dataService = inject(DataService);
 
   weightChartData: WeightChartData | null = null;
   weightChartOptions: ChartOptions;
@@ -82,23 +84,10 @@ export class ViewProgressComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((data) => {
         if (data.length > 0) {
-          const sortedData = this.sortEntriesByDate(data);
+          const sortedData = this.dataService.sortEntriesByDate(data);
           this.weightChartData = this.createChartData(sortedData);
         }
       });
-  }
-
-  private sortEntriesByDate(entries: Entry[]): Entry[] {
-    return [...entries].sort((a, b) => {
-      const dateA = this.parseDate(a.date);
-      const dateB = this.parseDate(b.date);
-      return dateA.getTime() - dateB.getTime();
-    });
-  }
-
-  private parseDate(dateString: string): Date {
-    const [day, month, year] = dateString.split('-').map(Number);
-    return new Date(year, month - 1, day);
   }
 
   private createChartData(entries: Entry[]): WeightChartData {

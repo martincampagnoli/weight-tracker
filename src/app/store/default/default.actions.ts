@@ -40,6 +40,17 @@ export const deleteEntry = createAction(
 );
 
 /**
+ * Action to set a new goal.
+ */
+export const setGoal = createAction(
+  '[Default] Set Goal',
+  props<{ payload: { targetWeight: number } }>()
+);
+/**
+ * Action to reset goal.
+ */
+export const resetGoal = createAction('[Default] Reset Goal');
+/**
  * Action to reset the application state.
  */
 export const resetAppState = createAction('[Default] Reset app state');

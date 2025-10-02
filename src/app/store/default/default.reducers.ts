@@ -10,6 +10,8 @@ import {
   deleteEntry,
   getDataSuccess,
   resetAppState,
+  resetGoal,
+  setGoal,
 } from './default.actions';
 import { Entry } from 'src/app/models/Entry';
 
@@ -20,6 +22,7 @@ export interface AppState {
   loading: boolean;
   data: Entry[];
   nextId: number;
+  targetWeight?: number;
 }
 
 /**
@@ -29,6 +32,7 @@ const initialState: AppState = {
   loading: false,
   data: [],
   nextId: 1,
+  targetWeight: undefined,
 };
 
 /**
@@ -67,12 +71,24 @@ const reducer = createReducer(
       date: payload.date,
       description: payload.description,
     };
-
     return {
       ...state,
       loading: false,
       data: [newEntry, ...state.data],
       nextId: state.nextId + 1,
+    };
+  }),
+  on(setGoal, (state, { payload }) => {
+    const newGoal = payload.targetWeight;
+    return {
+      ...state,
+      targetWeight: newGoal,
+    };
+  }),
+  on(resetGoal, (state) => {
+    return {
+      ...state,
+      targetWeight: undefined,
     };
   })
 );
@@ -112,4 +128,12 @@ export const getDataState = createSelector(
 export const getNextEntryId = createSelector(
   selectAppState,
   (state: AppState): number => state.nextId
+);
+
+/**
+ * Selector to get the target weight.
+ */
+export const getTargetWeight = createSelector(
+  selectAppState,
+  (state: AppState) => state.targetWeight
 );

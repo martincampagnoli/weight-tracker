@@ -4,6 +4,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideMockStore } from '@ngrx/store/testing';
 
 import { ViewProgressDialogComponent } from './view-progress-dialog.component';
+import { DataService } from 'src/app/services/data.service';
+import { of } from 'rxjs';
 
 describe('ViewProgressDialogComponent', () => {
   let component: ViewProgressDialogComponent;
@@ -24,6 +26,13 @@ describe('ViewProgressDialogComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ViewProgressDialogComponent, NoopAnimationsModule],
       providers: [
+        {
+          provide: DataService,
+          useValue: {
+            getData: jest.fn().mockReturnValue(of([])),
+            sortEntriesByDate: jest.fn(),
+          },
+        },
         provideMockStore({ initialState }),
         {
           provide: MatDialogRef,
