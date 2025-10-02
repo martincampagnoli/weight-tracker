@@ -5,7 +5,7 @@ import { Entry } from 'src/app/models/Entry';
  * Action representing a failure during data retrieval.
  */
 export const getFailure = createAction(
-  '[Default] GetFailure  Error',
+  '[Default] GetFailure Error',
   props<{ payload: { message: string } }>()
 );
 

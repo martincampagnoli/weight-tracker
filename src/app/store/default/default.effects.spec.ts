@@ -64,7 +64,7 @@ describe('AppEffects', () => {
       actions$ = of(action);
 
       effects.getData.subscribe((result) => {
-        expect(result.type).toBe('[Default] GetFailure  Error');
+        expect(result.type).toBe('[Default] GetFailure Error');
         expect((result as any).payload).toEqual(errorMessage);
         expect(dataService.getData).toHaveBeenCalled();
         done();
@@ -112,7 +112,7 @@ describe('AppEffects', () => {
       actions$ = of(action);
 
       effects.getData.subscribe((result) => {
-        expect(result.type).toBe('[Default] GetFailure  Error');
+        expect(result.type).toBe('[Default] GetFailure Error');
         expect((result as any).payload).toEqual(httpError);
         done();
       });
