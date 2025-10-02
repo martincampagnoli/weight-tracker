@@ -23,6 +23,9 @@ These guidelines document the core engineering practices established in this pro
 - Encapsulate view logic with small private helpers
   - Example patterns used: `parseDate`, `sortEntriesByDate`, `createChartData`, `createChartOptions`
 - Centralize constants (labels, colors, dimensions) into readonly config objects for clarity and reuse
+- Prefer `ChangeDetectionStrategy.OnPush` for components to optimize rendering and reduce unnecessary change detection cycles
+- Use `trackBy` functions (e.g., `trackById`) in `@for` loops to improve list rendering performance
+- Always use Angular's control flow blocks (`@for`, `@if`, etc.) in templates for clarity, performance, and future compatibility
 
 ## UI and Responsiveness
 

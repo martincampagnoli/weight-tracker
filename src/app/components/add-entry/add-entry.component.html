@@ -22,6 +22,7 @@
   >
     <form [formGroup]="secondFormGroup">
       <mat-form-field class="pe-1 pt-3" style="width: 75%">
+        <mat-label>dd-mm-yyyy</mat-label>
         <input matInput formControlName="date" [matDatepicker]="picker" />
         <mat-datepicker-toggle
           matIconSuffix

@@ -87,7 +87,7 @@ describe('DashboardComponent', () => {
     it('should subscribe to data state', () => {
       fixture.detectChanges();
 
-      expect(component['filteredData']).toEqual(mockEntries);
+      expect(component['filteredData']()).toEqual(mockEntries);
     });
   });
 
@@ -209,7 +209,7 @@ describe('DashboardComponent', () => {
       store.refreshState();
       fixture.detectChanges();
 
-      expect(component['filteredData']).toEqual(newEntries);
+      expect(component['filteredData']()).toEqual(newEntries);
     });
   });
 });

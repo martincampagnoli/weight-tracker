@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CircleLinkComponent } from './components/circle-link/circle-link.component';
 
@@ -11,6 +11,7 @@ import { CircleLinkComponent } from './components/circle-link/circle-link.compon
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [RouterOutlet, RouterLink, CircleLinkComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   /**

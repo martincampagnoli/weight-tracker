@@ -1,10 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MatDialogTitle, MatDialogContent } from '@angular/material/dialog';
 import { ViewProgressComponent } from '../view-progress/view-progress.component';
 
 @Component({

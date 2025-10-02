@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Type } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Type,
+} from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
@@ -18,12 +23,15 @@ import { ViewProgressDialogComponent } from '../view-progress-dialog/view-progre
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, MatIcon, MatButton, MatPaginator, EntryComponent],
 })
 export class DashboardComponent {
   readonly dialog = inject(MatDialog);
   private store: Store = inject(Store);
-  protected filteredData: Array<Entry> = [];
+  protected filteredData = toSignal(this.store.select(reducers.getDataState), {
+    initialValue: [],
+  });
 
   lowValue = 0;
   highValue = 3;
@@ -31,12 +39,6 @@ export class DashboardComponent {
   pageSizeOptions = [3, 9, 30, 90];
 
   constructor() {
-    this.store
-      .select(reducers.getDataState)
-      .pipe(takeUntilDestroyed())
-      .subscribe((data) => {
-        this.filteredData = data;
-      });
     this.store.dispatch(getData());
   }
 

@@ -220,11 +220,11 @@ exports[`AddEntryDialogComponent Component Creation should match snapshot 1`] = 
                   novalidate=""
                 >
                   <mat-form-field
-                    class="mat-mdc-form-field pe-1 pt-3 mat-mdc-form-field-type-mat-input mat-mdc-form-field-has-icon-suffix mat-form-field-appearance-fill mat-primary ng-untouched ng-pristine ng-invalid"
+                    class="mat-mdc-form-field pe-1 pt-3 mat-mdc-form-field-type-mat-input mat-mdc-form-field-has-icon-suffix mat-form-field-appearance-fill mat-form-field-hide-placeholder mat-primary ng-untouched ng-pristine ng-invalid"
                     style="width: 75%;"
                   >
                     <div
-                      class="mat-mdc-text-field-wrapper mdc-text-field mdc-text-field--filled mdc-text-field--no-label"
+                      class="mat-mdc-text-field-wrapper mdc-text-field mdc-text-field--filled"
                     >
                       <div
                         class="mat-mdc-form-field-focus-overlay"
@@ -235,6 +235,20 @@ exports[`AddEntryDialogComponent Component Creation should match snapshot 1`] = 
                         <div
                           class="mat-mdc-form-field-infix"
                         >
+                          <label
+                            class="mdc-floating-label mat-mdc-floating-label"
+                            for="mat-input-a4"
+                            id="mat-mdc-form-field-label-a4"
+                            matformfieldfloatinglabel=""
+                          >
+                            <mat-label>
+                              dd-mm-yyyy
+                            </mat-label>
+                            <span
+                              aria-hidden="true"
+                              class="mat-mdc-form-field-required-marker mdc-floating-label--required"
+                            />
+                          </label>
                           <input
                             aria-haspopup="dialog"
                             aria-required="true"

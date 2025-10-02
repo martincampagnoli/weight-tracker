@@ -3,7 +3,7 @@
 exports[`DashboardComponent Component Creation should match snapshot 1`] = `
 <app-dashboard
   dialog={[Function Object]}
-  filteredData={[Function Array]}
+  filteredData={[Function Function]}
   highValue={[Function Number]}
   lowValue="0"
   pageSize={[Function Number]}

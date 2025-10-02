@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ButtonLinkComponent } from '../button-link/button-link.component';
 
 @Component({
@@ -7,5 +7,6 @@ import { ButtonLinkComponent } from '../button-link/button-link.component';
   styleUrls: ['./main.component.scss'],
   standalone: true,
   imports: [ButtonLinkComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent {}

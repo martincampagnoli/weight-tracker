@@ -1,18 +1,14 @@
 import {
   Component,
   inject,
-  input,
   OnInit,
-  OnDestroy,
   DestroyRef,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ChartModule } from 'primeng/chart';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-
 import * as reducers from 'src/app/store/default';
 import { Entry } from 'src/app/models/Entry';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -48,6 +44,7 @@ interface ChartOptions {
   templateUrl: './view-progress.component.html',
   styleUrls: ['./view-progress.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,

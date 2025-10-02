@@ -1,4 +1,9 @@
-import { Component, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 import {
   FormBuilder,
   FormsModule,
@@ -29,6 +34,7 @@ import { SnackBarUtil } from 'src/app/utils/snackbar.util';
   templateUrl: './add-entry.component.html',
   styleUrls: ['./add-entry.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,

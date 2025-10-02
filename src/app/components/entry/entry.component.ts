@@ -1,4 +1,10 @@
-import { Component, DestroyRef, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+  input,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {
   MatCard,
@@ -24,6 +30,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatCard,
     MatCardTitle,
