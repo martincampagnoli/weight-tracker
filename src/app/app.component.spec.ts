@@ -15,10 +15,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'assessment'`, () => {
+  it(`should have as title 'Dialog Assessment'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('assessment');
+    expect(app.title).toEqual('Dialog Assessment');
   });
 
   it('should match snapshot', () => {

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmDeleteDialogComponent Component Creation should match snapshot 1`] = `
+<confirm-delete-dialog>
+  <h2
+    class="mat-mdc-dialog-title mdc-dialog__title"
+    id="mat-mdc-dialog-title-a1"
+    mat-dialog-title=""
+  >
+    Delete Entry
+  </h2><mat-dialog-content
+    class="mat-mdc-dialog-content mdc-dialog__content"
+  >
+    <span>
+      Are you sure you want to delete this entry?
+    </span>
+    <br />
+  </mat-dialog-content><mat-dialog-actions
+    class="mat-mdc-dialog-actions mdc-dialog__actions"
+  >
+    <button
+      class="mdc-button mat-mdc-button-base mat-mdc-button mat-unthemed _mat-animation-noopable"
+      mat-button=""
+      mat-dialog-close=""
+      mat-ripple-loader-class-name="mat-mdc-button-ripple"
+      mat-ripple-loader-uninitialized=""
+      type="button"
+    >
+      <span
+        class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+      />
+      <span
+        class="mdc-button__label"
+      >
+        No
+      </span>
+      <span
+        class="mat-focus-indicator"
+      />
+      <span
+        class="mat-mdc-button-touch-target"
+      />
+    </button>
+    <button
+      cdkfocusinitial=""
+      class="mdc-button mat-mdc-button-base mat-mdc-button mat-unthemed _mat-animation-noopable"
+      mat-button=""
+      mat-ripple-loader-class-name="mat-mdc-button-ripple"
+      mat-ripple-loader-uninitialized=""
+      type="button"
+    >
+      <span
+        class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+      />
+      <span
+        class="mdc-button__label"
+      >
+        Yes
+      </span>
+      <span
+        class="mat-focus-indicator"
+      />
+      <span
+        class="mat-mdc-button-touch-target"
+      />
+    </button>
+  </mat-dialog-actions>
+</confirm-delete-dialog>
+`;

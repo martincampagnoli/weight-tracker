@@ -1,23 +1,42 @@
-import { DataService } from 'src/app/services/data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UntypedFormBuilder } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { provideMockStore } from '@ngrx/store/testing';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { signal } from '@angular/core';
 
 import { AddEntryComponent } from './add-entry.component';
-
-const mockDataService = {
-  createUser: (value: any) => false,
-};
 
 describe('AddEntryComponent', () => {
   let component: AddEntryComponent;
   let fixture: ComponentFixture<AddEntryComponent>;
+  let mockDialogRef: jest.Mocked<MatDialogRef<AddEntryComponent>>;
+  let mockSnackBar: jest.Mocked<MatSnackBar>;
+
+  const initialState = {
+    data: [],
+  };
 
   beforeEach(async () => {
+    mockDialogRef = {
+      close: jest.fn(),
+      afterClosed: jest.fn(),
+      beforeClosed: jest.fn(),
+    } as any;
+
+    mockSnackBar = {
+      open: jest.fn(),
+      dismiss: jest.fn(),
+    } as any;
+
     await TestBed.configureTestingModule({
-      declarations: [AddEntryComponent],
+      imports: [AddEntryComponent, NoopAnimationsModule],
       providers: [
-        UntypedFormBuilder,
-        { provide: DataService, useValue: mockDataService },
+        provideMockStore({ initialState }),
+        provideNativeDateAdapter(),
+        { provide: MatSnackBar, useValue: mockSnackBar },
+        { provide: 'dialogRef', useValue: mockDialogRef },
       ],
     }).compileComponents();
   });
@@ -25,10 +44,29 @@ describe('AddEntryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddEntryComponent);
     component = fixture.componentInstance;
+
+    fixture.componentRef.setInput('dialogRef', signal(mockDialogRef));
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe('Component Creation', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+    it('should match snapshot', () => {
+      expect(fixture).toMatchSnapshot();
+    });
+  });
+
+  describe('Form Validation', () => {
+    it('should initialize form with default values', () => {
+      expect(component.firstFormGroup).toBeDefined();
+      expect(component.firstFormGroup.get('weight')?.value).toBe('');
+    });
   });
 });

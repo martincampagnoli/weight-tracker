@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewProgressComponent Chart Configuration should match chart options snapshot 1`] = `
+{
+  "plugins": {
+    "legend": {
+      "display": true,
+    },
+    "tooltip": {
+      "enabled": true,
+    },
+  },
+  "responsive": true,
+  "scales": {
+    "x": {
+      "title": {
+        "display": true,
+        "text": "Date",
+      },
+    },
+    "y": {
+      "title": {
+        "display": true,
+        "text": "Weight (kg)",
+      },
+    },
+  },
+}
+`;
+
+exports[`ViewProgressComponent Component Creation should match snapshot 1`] = `
+<app-view-progress
+  CHART_CONFIG={[Function Object]}
+  destroyRef={[Function NodeInjectorDestroyRef]}
+  store={[Function _MockStore]}
+  weightChartData="null"
+  weightChartOptions={[Function Object]}
+>
+  <p-chart
+    class="p-chart"
+    pc2=""
+    style="display: block; position: relative;"
+    styleclass="w-full"
+    type="line"
+  >
+    <canvas
+      role="img"
+    />
+  </p-chart>
+</app-view-progress>
+`;

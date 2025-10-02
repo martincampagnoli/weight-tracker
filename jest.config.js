@@ -28,7 +28,7 @@ module.exports = {
     }]
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@angular|@ngrx|rxjs|uuid)/)'
+    'node_modules/(?!(@angular|@ngrx|rxjs|uuid|primeng|@primeuix)/)'
   ],
   testEnvironment: 'jsdom'
 };

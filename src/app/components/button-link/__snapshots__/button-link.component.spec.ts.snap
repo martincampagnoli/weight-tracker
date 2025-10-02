@@ -17,7 +17,9 @@ exports[`ButtonLinkComponent should match snapshot with default props 1`] = `
     >
       fa fa-icon
     </mat-icon>
-    <span>
+    <span
+      class="ps-1"
+    >
       Test Label
     </span>
     <mat-icon
@@ -49,7 +51,9 @@ exports[`ButtonLinkComponent should match snapshot with different icon 1`] = `
     >
       settings
     </mat-icon>
-    <span>
+    <span
+      class="ps-1"
+    >
       Settings
     </span>
     <mat-icon
@@ -81,7 +85,9 @@ exports[`ButtonLinkComponent should match snapshot with empty-like values 1`] = 
     >
       
     </mat-icon>
-    <span>
+    <span
+      class="ps-1"
+    >
       
     </span>
     <mat-icon
@@ -113,7 +119,9 @@ exports[`ButtonLinkComponent should match snapshot with long label 1`] = `
     >
       info
     </mat-icon>
-    <span>
+    <span
+      class="ps-1"
+    >
       This is a very long button label
     </span>
     <mat-icon

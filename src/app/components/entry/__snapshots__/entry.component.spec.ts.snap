@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EntryComponent Component Creation should match snapshot 1`] = `
+<app-entry
+  destroyRef={[Function NodeInjectorDestroyRef]}
+  dialog={[Function _MatDialog]}
+  entry={[Function Function]}
+  snackBarUtil={[Function SnackBarUtil]}
+  store={[Function _Store]}
+>
+  <mat-card
+    appearance="outlined"
+    class="mat-mdc-card mdc-card entry-card mat-mdc-card-outlined mdc-card--outlined"
+  >
+    <mat-card-header
+      class="mat-mdc-card-header entry-header"
+    >
+      <div
+        class="mat-mdc-card-header-text"
+      >
+        <mat-card-title
+          class="mat-mdc-card-title entry-title"
+        >
+          <span>
+            70.5 kgs
+          </span>
+        </mat-card-title>
+        <mat-card-subtitle
+          class="mat-mdc-card-subtitle entry-subtitle"
+        >
+          <span>
+            01-01-2024
+          </span>
+        </mat-card-subtitle>
+      </div>
+      <div
+        class="header-icons"
+      >
+        <span
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="mat-mdc-menu-trigger"
+        >
+          <mat-icon
+            aria-hidden="true"
+            class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+            data-mat-icon-type="font"
+            role="img"
+          >
+            more_vert
+          </mat-icon>
+        </span>
+      </div>
+    </mat-card-header>
+    <mat-card-content
+      class="mat-mdc-card-content entry-content px-3"
+    >
+      <p
+        class="entry-description mb-4"
+      >
+         Test entry 
+      </p>
+      <hr />
+    </mat-card-content>
+    <mat-card-actions
+      class="mat-mdc-card-actions mdc-card__actions d-flex justify-content-end ps-2 pe-3 pt-1 entry-actions"
+    >
+      <span
+        class="push-right"
+      >
+        ID: 1
+      </span>
+    </mat-card-actions>
+  </mat-card><mat-menu>
+  </mat-menu>
+</app-entry>
+`;

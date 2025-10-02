@@ -137,11 +137,6 @@ describe('SnackBarUtil', () => {
   });
 
   describe('MatSnackBar integration', () => {
-    it('should have MatSnackBar injected', () => {
-      expect(service.matSnackBar).toBeTruthy();
-      expect(service.matSnackBar).toBe(mockMatSnackBar);
-    });
-
     it('should use injected MatSnackBar instance', () => {
       const testMessage = 'Integration test message';
       service.show(testMessage);

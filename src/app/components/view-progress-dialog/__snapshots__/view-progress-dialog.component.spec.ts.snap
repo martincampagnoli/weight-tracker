@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewProgressDialogComponent Component Creation should match snapshot 1`] = `
+<view-progress-dialog>
+  <h2
+    class="mat-mdc-dialog-title mdc-dialog__title"
+    id="mat-mdc-dialog-title-a1"
+    mat-dialog-title=""
+  >
+    View Progress
+  </h2><mat-dialog-content
+    class="mat-mdc-dialog-content mdc-dialog__content"
+  >
+    <app-view-progress>
+      <p-chart
+        class="p-chart"
+        pc2=""
+        style="display: block; position: relative;"
+        styleclass="w-full"
+        type="line"
+      >
+        <canvas
+          role="img"
+        />
+      </p-chart>
+    </app-view-progress>
+  </mat-dialog-content>
+</view-progress-dialog>
+`;

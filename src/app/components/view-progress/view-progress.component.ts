@@ -60,8 +60,6 @@ export class ViewProgressComponent implements OnInit {
   private readonly store = inject(Store<reducers.AppState>);
   private destroyRef = inject(DestroyRef);
 
-  readonly dialogRef = input.required<MatDialogRef<ViewProgressComponent>>();
-
   weightChartData: WeightChartData | null = null;
   weightChartOptions: ChartOptions;
 

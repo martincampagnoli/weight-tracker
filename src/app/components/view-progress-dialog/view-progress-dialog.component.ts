@@ -19,6 +19,4 @@ import { ViewProgressComponent } from '../view-progress/view-progress.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ViewProgressDialogComponent {
-  readonly dialogRef = inject(MatDialogRef<ViewProgressDialogComponent>);
-}
+export class ViewProgressDialogComponent {}

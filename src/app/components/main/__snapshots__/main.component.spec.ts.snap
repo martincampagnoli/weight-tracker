@@ -10,7 +10,7 @@ exports[`MainComponent should match snapshot 1`] = `
     <app-button-link>
       <a
         class="card w-100 pb-3 pt-3"
-        href="/placeholder"
+        href="/weight-tracker"
         rel="noopener"
       >
         <mat-icon
@@ -19,10 +19,12 @@ exports[`MainComponent should match snapshot 1`] = `
           data-mat-icon-type="font"
           role="img"
         >
-          grid_on
+          monitor_weight
         </mat-icon>
-        <span>
-          Placeholder button
+        <span
+          class="ps-1"
+        >
+          Weight Tracker
         </span>
         <mat-icon
           aria-hidden="true"

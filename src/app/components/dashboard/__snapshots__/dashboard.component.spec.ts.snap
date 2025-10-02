@@ -1,0 +1,593 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardComponent Component Creation should match snapshot 1`] = `
+<app-dashboard
+  dialog={[Function Object]}
+  filteredData={[Function Array]}
+  highValue={[Function Number]}
+  lowValue="0"
+  pageSize={[Function Number]}
+  pageSizeOptions={[Function Array]}
+  store={[Function _MockStore]}
+>
+  <div
+    class="container dashboard-container"
+  >
+    <section
+      class="mx-auto mb-2 dashboard-section"
+    >
+      <div
+        class="row align-items-center flex-wrap"
+      >
+        <div
+          class="col-md-6 p-2"
+        >
+          <span
+            class="entries-count"
+          >
+             5 entries 
+          </span>
+        </div>
+        <div
+          class="col-md-6 p-2"
+        >
+          <div
+            class="row justify-content-md-end justify-content-center"
+          >
+            <div
+              class="col-12 col-md-4 p-2"
+            >
+              <button
+                class="mdc-button mat-mdc-button-base w-100 mdc-button--raised mat-mdc-raised-button mat-primary _mat-animation-noopable"
+                color="primary"
+                mat-button=""
+                mat-raised-button=""
+                mat-ripple-loader-class-name="mat-mdc-button-ripple"
+                mat-ripple-loader-uninitialized=""
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                />
+                <mat-icon
+                  aria-hidden="true"
+                  class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                  data-mat-icon-type="font"
+                  role="img"
+                >
+                  show_chart
+                </mat-icon>
+                <span
+                  class="mdc-button__label"
+                >
+                  <span
+                    class="d-none d-md-inline"
+                  >
+                     View progress
+                  </span>
+                  <span
+                    class="d-md-none"
+                  >
+                     Progress
+                  </span>
+                </span>
+                <span
+                  class="mat-focus-indicator"
+                />
+                <span
+                  class="mat-mdc-button-touch-target"
+                />
+              </button>
+            </div>
+            <div
+              class="col-12 col-md-4 p-2"
+            >
+              <button
+                class="mdc-button mat-mdc-button-base w-100 mdc-button--raised mat-mdc-raised-button mat-primary _mat-animation-noopable"
+                color="primary"
+                mat-button=""
+                mat-raised-button=""
+                mat-ripple-loader-class-name="mat-mdc-button-ripple"
+                mat-ripple-loader-uninitialized=""
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                />
+                <mat-icon
+                  aria-hidden="true"
+                  class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                  data-mat-icon-type="font"
+                  role="img"
+                >
+                  sports_score
+                </mat-icon>
+                <span
+                  class="mdc-button__label"
+                >
+                  <span
+                    class="d-none d-md-inline"
+                  >
+                     Set weight goal
+                  </span>
+                  <span
+                    class="d-md-none"
+                  >
+                     Goal
+                  </span>
+                </span>
+                <span
+                  class="mat-focus-indicator"
+                />
+                <span
+                  class="mat-mdc-button-touch-target"
+                />
+              </button>
+            </div>
+            <div
+              class="col-12 col-md-4 p-2"
+            >
+              <button
+                class="mdc-button mat-mdc-button-base w-100 mdc-button--raised mat-mdc-raised-button mat-primary _mat-animation-noopable"
+                color="primary"
+                mat-button=""
+                mat-raised-button=""
+                mat-ripple-loader-class-name="mat-mdc-button-ripple"
+                mat-ripple-loader-uninitialized=""
+              >
+                <span
+                  class="mat-mdc-button-persistent-ripple mdc-button__ripple"
+                />
+                <mat-icon
+                  aria-hidden="true"
+                  class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                  data-mat-icon-type="font"
+                  role="img"
+                >
+                  add
+                </mat-icon>
+                <span
+                  class="mdc-button__label"
+                >
+                  <span
+                    class="d-none d-md-inline"
+                  >
+                     Add new entry
+                  </span>
+                  <span
+                    class="d-md-none"
+                  >
+                     Add
+                  </span>
+                </span>
+                <span
+                  class="mat-focus-indicator"
+                />
+                <span
+                  class="mat-mdc-button-touch-target"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-4 p-2 entry-grid-item"
+          >
+            <app-entry>
+              <mat-card
+                appearance="outlined"
+                class="mat-mdc-card mdc-card entry-card mat-mdc-card-outlined mdc-card--outlined"
+              >
+                <mat-card-header
+                  class="mat-mdc-card-header entry-header"
+                >
+                  <div
+                    class="mat-mdc-card-header-text"
+                  >
+                    <mat-card-title
+                      class="mat-mdc-card-title entry-title"
+                    >
+                      <span>
+                        70 kgs
+                      </span>
+                    </mat-card-title>
+                    <mat-card-subtitle
+                      class="mat-mdc-card-subtitle entry-subtitle"
+                    >
+                      <span>
+                        01-01-2024
+                      </span>
+                    </mat-card-subtitle>
+                  </div>
+                  <div
+                    class="header-icons"
+                  >
+                    <span
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      class="mat-mdc-menu-trigger"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        more_vert
+                      </mat-icon>
+                    </span>
+                  </div>
+                </mat-card-header>
+                <mat-card-content
+                  class="mat-mdc-card-content entry-content px-3"
+                >
+                  <p
+                    class="entry-description mb-4"
+                  >
+                     Start 
+                  </p>
+                  <hr />
+                </mat-card-content>
+                <mat-card-actions
+                  class="mat-mdc-card-actions mdc-card__actions d-flex justify-content-end ps-2 pe-3 pt-1 entry-actions"
+                >
+                  <span
+                    class="push-right"
+                  >
+                    ID: 1
+                  </span>
+                </mat-card-actions>
+              </mat-card>
+              <mat-menu>
+              </mat-menu>
+            </app-entry>
+          </div>
+          <div
+            class="col-md-4 p-2 entry-grid-item"
+          >
+            <app-entry>
+              <mat-card
+                appearance="outlined"
+                class="mat-mdc-card mdc-card entry-card mat-mdc-card-outlined mdc-card--outlined"
+              >
+                <mat-card-header
+                  class="mat-mdc-card-header entry-header"
+                >
+                  <div
+                    class="mat-mdc-card-header-text"
+                  >
+                    <mat-card-title
+                      class="mat-mdc-card-title entry-title"
+                    >
+                      <span>
+                        68 kgs
+                      </span>
+                    </mat-card-title>
+                    <mat-card-subtitle
+                      class="mat-mdc-card-subtitle entry-subtitle"
+                    >
+                      <span>
+                        15-01-2024
+                      </span>
+                    </mat-card-subtitle>
+                  </div>
+                  <div
+                    class="header-icons"
+                  >
+                    <span
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      class="mat-mdc-menu-trigger"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        more_vert
+                      </mat-icon>
+                    </span>
+                  </div>
+                </mat-card-header>
+                <mat-card-content
+                  class="mat-mdc-card-content entry-content px-3"
+                >
+                  <p
+                    class="entry-description mb-4"
+                  >
+                     Progress 
+                  </p>
+                  <hr />
+                </mat-card-content>
+                <mat-card-actions
+                  class="mat-mdc-card-actions mdc-card__actions d-flex justify-content-end ps-2 pe-3 pt-1 entry-actions"
+                >
+                  <span
+                    class="push-right"
+                  >
+                    ID: 2
+                  </span>
+                </mat-card-actions>
+              </mat-card>
+              <mat-menu>
+              </mat-menu>
+            </app-entry>
+          </div>
+          <div
+            class="col-md-4 p-2 entry-grid-item"
+          >
+            <app-entry>
+              <mat-card
+                appearance="outlined"
+                class="mat-mdc-card mdc-card entry-card mat-mdc-card-outlined mdc-card--outlined"
+              >
+                <mat-card-header
+                  class="mat-mdc-card-header entry-header"
+                >
+                  <div
+                    class="mat-mdc-card-header-text"
+                  >
+                    <mat-card-title
+                      class="mat-mdc-card-title entry-title"
+                    >
+                      <span>
+                        65 kgs
+                      </span>
+                    </mat-card-title>
+                    <mat-card-subtitle
+                      class="mat-mdc-card-subtitle entry-subtitle"
+                    >
+                      <span>
+                        01-02-2024
+                      </span>
+                    </mat-card-subtitle>
+                  </div>
+                  <div
+                    class="header-icons"
+                  >
+                    <span
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      class="mat-mdc-menu-trigger"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        more_vert
+                      </mat-icon>
+                    </span>
+                  </div>
+                </mat-card-header>
+                <mat-card-content
+                  class="mat-mdc-card-content entry-content px-3"
+                >
+                  <p
+                    class="entry-description mb-4"
+                  >
+                     Goal reached 
+                  </p>
+                  <hr />
+                </mat-card-content>
+                <mat-card-actions
+                  class="mat-mdc-card-actions mdc-card__actions d-flex justify-content-end ps-2 pe-3 pt-1 entry-actions"
+                >
+                  <span
+                    class="push-right"
+                  >
+                    ID: 3
+                  </span>
+                </mat-card-actions>
+              </mat-card>
+              <mat-menu>
+              </mat-menu>
+            </app-entry>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row mb-3"
+      >
+        <mat-paginator
+          class="mat-mdc-paginator col-12 bg-transparent"
+          role="group"
+        >
+          <div
+            class="mat-mdc-paginator-outer-container"
+          >
+            <div
+              class="mat-mdc-paginator-container"
+            >
+              <div
+                class="mat-mdc-paginator-page-size"
+              >
+                <div
+                  class="mat-mdc-paginator-page-size-label"
+                  id="mat-paginator-page-size-label-a0"
+                >
+                   Items per page: 
+                </div>
+                <mat-form-field
+                  class="mat-mdc-form-field mat-mdc-paginator-page-size-select mat-mdc-form-field-type-mat-select mat-form-field-appearance-outline mat-primary"
+                >
+                  <div
+                    class="mat-mdc-text-field-wrapper mdc-text-field mdc-text-field--outlined mdc-text-field--no-label"
+                  >
+                    <div
+                      class="mat-mdc-form-field-flex"
+                    >
+                      <div
+                        class="mdc-notched-outline mdc-notched-outline--no-label"
+                        matformfieldnotchedoutline=""
+                      >
+                        <div
+                          class="mat-mdc-notch-piece mdc-notched-outline__leading"
+                        />
+                        <div
+                          class="mat-mdc-notch-piece mdc-notched-outline__notch"
+                        >
+                        </div>
+                        <div
+                          class="mat-mdc-notch-piece mdc-notched-outline__trailing"
+                        />
+                      </div>
+                      <div
+                        class="mat-mdc-form-field-infix"
+                      >
+                        <mat-select
+                          aria-disabled="false"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-invalid="false"
+                          aria-labelledby=" mat-paginator-page-size-label-a0"
+                          aria-required="false"
+                          class="mat-mdc-select mat-mdc-select-empty"
+                          hidesingleselectionindicator=""
+                          id="mat-select-a0"
+                          role="combobox"
+                          tabindex="0"
+                        >
+                          <div
+                            cdk-overlay-origin=""
+                            class="mat-mdc-select-trigger"
+                          >
+                            <div
+                              class="mat-mdc-select-value"
+                              id="mat-select-value-a0"
+                            >
+                              <span
+                                class="mat-mdc-select-placeholder mat-mdc-select-min-line"
+                              >
+                              </span>
+                            </div>
+                            <div
+                              class="mat-mdc-select-arrow-wrapper"
+                            >
+                              <div
+                                class="mat-mdc-select-arrow"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  height="24px"
+                                  viewBox="0 0 24 24"
+                                  width="24px"
+                                >
+                                  <path
+                                    d="M7 10l5 5 5-5z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </mat-select>
+                        <div
+                          class="mat-mdc-paginator-touch-target"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-atomic="true"
+                    aria-live="polite"
+                    class="mat-mdc-form-field-subscript-wrapper mat-mdc-form-field-bottom-align"
+                  >
+                    <div
+                      class="mat-mdc-form-field-hint-wrapper"
+                    >
+                      <div
+                        class="mat-mdc-form-field-hint-spacer"
+                      />
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+              <div
+                class="mat-mdc-paginator-range-actions"
+              >
+                <div
+                  aria-live="polite"
+                  class="mat-mdc-paginator-range-label"
+                >
+                   1 – 3 of 5 
+                </div>
+                <button
+                  aria-disabled="true"
+                  aria-label="Previous page"
+                  class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-tooltip-trigger mat-mdc-paginator-navigation-previous mat-mdc-button-disabled mat-mdc-button-disabled-interactive mat-unthemed _mat-animation-noopable mat-mdc-tooltip-disabled"
+                  disabledinteractive=""
+                  mat-ripple-loader-centered=""
+                  mat-ripple-loader-class-name="mat-mdc-button-ripple"
+                  mat-ripple-loader-disabled=""
+                  mat-ripple-loader-uninitialized=""
+                  maticonbutton=""
+                  mattooltipposition="above"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="mat-mdc-paginator-icon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                    />
+                  </svg>
+                  <span
+                    class="mat-focus-indicator"
+                  />
+                  <span
+                    class="mat-mdc-button-touch-target"
+                  />
+                </button>
+                <button
+                  aria-label="Next page"
+                  class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-tooltip-trigger mat-mdc-paginator-navigation-next mat-mdc-button-disabled-interactive mat-unthemed _mat-animation-noopable"
+                  disabledinteractive=""
+                  mat-ripple-loader-centered=""
+                  mat-ripple-loader-class-name="mat-mdc-button-ripple"
+                  mat-ripple-loader-uninitialized=""
+                  maticonbutton=""
+                  mattooltipposition="above"
+                  type="button"
+                >
+                  <span
+                    class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="mat-mdc-paginator-icon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                  <span
+                    class="mat-focus-indicator"
+                  />
+                  <span
+                    class="mat-mdc-button-touch-target"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-paginator>
+      </div>
+    </section>
+  </div>
+</app-dashboard>
+`;
