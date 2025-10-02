@@ -40,8 +40,6 @@ describe('ViewProgressComponent', () => {
     store = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(ViewProgressComponent);
     component = fixture.componentInstance;
-
-    fixture.componentRef.setInput('dialogRef', signal(mockDialogRef));
   });
 
   afterEach(() => {
