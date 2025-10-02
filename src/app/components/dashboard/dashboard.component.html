@@ -6,32 +6,47 @@
           {{ filteredData.length + " entries" }}
         </span>
       </div>
-      <div
-        class="col-md-6 p-2 d-flex justify-content-end align-items-center gap-2"
-      >
-        <div class="col-lg-4 p-2">
-          <button
-            (click)="openDialog()"
-            color="primary"
-            mat-button
-            mat-raised-button
-            class="w-100"
-          >
-            <mat-icon>sports_score</mat-icon>
-            <span> Set weight goal</span>
-          </button>
-        </div>
-        <div class="col-lg-4 p-2">
-          <button
-            (click)="openDialog()"
-            color="primary"
-            mat-button
-            mat-raised-button
-            class="w-100"
-          >
-            <mat-icon>add</mat-icon>
-            <span> Add new entry</span>
-          </button>
+      <div class="col-md-6 p-2">
+        <div class="row justify-content-md-end justify-content-center">
+          <div class="col-12 col-md-4 p-2">
+            <button
+              (click)="openDialog('viewProgress')"
+              color="primary"
+              mat-button
+              mat-raised-button
+              class="w-100"
+            >
+              <mat-icon>show_chart</mat-icon>
+              <span class="d-none d-md-inline"> View progress</span>
+              <span class="d-md-none"> Progress</span>
+            </button>
+          </div>
+          <div class="col-12 col-md-4 p-2">
+            <button
+              (click)="openDialog('setWeightGoal')"
+              color="primary"
+              mat-button
+              mat-raised-button
+              class="w-100"
+            >
+              <mat-icon>sports_score</mat-icon>
+              <span class="d-none d-md-inline"> Set weight goal</span>
+              <span class="d-md-none"> Goal</span>
+            </button>
+          </div>
+          <div class="col-12 col-md-4 p-2">
+            <button
+              (click)="openDialog('addEntry')"
+              color="primary"
+              mat-button
+              mat-raised-button
+              class="w-100"
+            >
+              <mat-icon>add</mat-icon>
+              <span class="d-none d-md-inline"> Add new entry</span>
+              <span class="d-md-none"> Add</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

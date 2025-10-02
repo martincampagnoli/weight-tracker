@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Type } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
@@ -11,6 +11,7 @@ import { Entry } from 'src/app/models/Entry';
 import * as reducers from 'src/app/store/default';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEntryDialogComponent } from '../add-entry-dialog/add-entry-dialog.component';
+import { ViewProgressDialogComponent } from '../view-progress-dialog/view-progress-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -45,8 +46,20 @@ export class DashboardComponent {
     return event;
   }
 
-  openDialog(): void {
-    this.dialog.open(AddEntryDialogComponent, {
+  openDialog(type: string): void {
+    let component: Type<AddEntryDialogComponent | ViewProgressDialogComponent>;
+    switch (type) {
+      case 'addEntry':
+        component = AddEntryDialogComponent;
+        break;
+      case 'viewProgress':
+        component = ViewProgressDialogComponent;
+        break;
+      default:
+        component = AddEntryDialogComponent;
+    }
+
+    this.dialog.open(component, {
       width: '400px',
       enterAnimationDuration: '0ms',
       exitAnimationDuration: '0ms',
