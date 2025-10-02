@@ -1,9 +1,14 @@
 # weight-tracker
 
-Weight tracker app built with [Angular](https://angular.io/) as frontend framework, [Angular Material](https://material.angular.io/) and [Bootstrap](https://getbootstrap.com/) for design and styling. [NgRx](https://ngrx.io/) is used for state management.  
-It provides basic app scaffolding to build test assessments.
+Weight tracker app built with [Angular](https://angular.io/) v20.3.2 as frontend framework, [Angular Material](https://material.angular.io/) and [Bootstrap](https://getbootstrap.com/) for design and styling. [NgRx](https://ngrx.io/) is used for state management.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1 and updated to v20.3.2.
+This app lets you:
+
+- Add/remove weight entries to track your progress over time
+- Set a target goal weight
+- Visualize your progress in an interactive chart
+
+Based on [Interwhip](https://github.com/martincampagnoli/interwhip).
 
 ## Development server
 
@@ -19,7 +24,15 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io).
+We use [Jest](https://jestjs.io) for unit tests. Helpful scripts:
+
+- `npm test` — run unit tests
+- `npm run test:coverage` — coverage report
+- `npm run test:update-snapshots` — update snapshots intentionally
+
+## Project guidelines
+
+See [guidelines.md](./guidelines.md) for the project's best practices and conventions.
 
 ## Running end-to-end tests
 
