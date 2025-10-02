@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   FormBuilder,
   FormsModule,
@@ -41,6 +41,7 @@ import { SnackBarUtil } from 'src/app/utils/snackbar.util';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatLabel,
     MatStepper,
     MatStep,
     MatButton,

@@ -16,41 +16,5 @@
     "weight": 190,
     "date": "03-10-2025",
     "description": "Sample entry 3"
-  },
-  {
-    "id": 4,
-    "weight": 185,
-    "date": "04-10-2025",
-    "description": "Sample entry 4"
-  },
-  {
-    "id": 5,
-    "weight": 180,
-    "date": "05-10-2025",
-    "description": "Sample entry 5"
-  },
-  {
-    "id": 6,
-    "weight": 175,
-    "date": "06-10-2025",
-    "description": "Sample entry 6"
-  },
-  {
-    "id": 7,
-    "weight": 170,
-    "date": "07-10-2025",
-    "description": "Sample entry 7"
-  },
-  {
-    "id": 8,
-    "weight": 165,
-    "date": "08-10-2025",
-    "description": "Sample entry 8"
-  },
-  {
-    "id": 9,
-    "weight": 160,
-    "date": "09-10-2025",
-    "description": "Sample entry 9"
   }
 ]
